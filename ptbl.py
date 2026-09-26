@@ -437,6 +437,11 @@ button.element-card.actinide:hover, button.legend-pill.actinide:hover { backgrou
   border-radius: 14px;
   padding: 10px 18px;
   box-shadow: 0 1px 4px alpha(#000, 0.06);
+  transition: opacity 120ms ease-in-out;
+}
+
+.centerpiece-card.empty {
+  opacity: 0;
 }
 
 .hero-tile {
@@ -678,6 +683,8 @@ class MainWindow(Adw.ApplicationWindow):
     self.active_mode = "categories"  # "categories" | "heatmap"
     self.active_heatmap_prop = "Electronegativity"
     self.current_focus_num = 1
+    self.hovered_number = None
+    self.focused_number = None
     self.cards_by_num = {}
     self.pos_to_num = {}
     self.num_to_pos = {}
@@ -806,8 +813,8 @@ class MainWindow(Adw.ApplicationWindow):
       Gtk.StyleContext.add_provider_for_display(
           display, self.heatmap_provider, Gtk.STYLE_PROVIDER_PRIORITY_USER + 20)
 
-    # Initial Live Preview
-    self.update_live_preview(1)
+    # Initial Live Preview: Start completely empty when not hovering
+    self.clear_preview()
 
   def setup_centerpiece(self):
     self.centerpiece = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,
@@ -816,6 +823,7 @@ class MainWindow(Adw.ApplicationWindow):
                                vexpand=True,
                                valign=Gtk.Align.FILL)
     self.centerpiece.add_css_class("centerpiece-card")
+    self.centerpiece.add_css_class("empty")
 
     # Left Section: Hero Element Tile
     self.hero_tile = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2, valign=Gtk.Align.FILL)
@@ -1040,7 +1048,10 @@ class MainWindow(Adw.ApplicationWindow):
       self.apply_heatmap(self.active_heatmap_prop)
       self.gradient_bar.set_visible(True)
       self.gradient_bar.queue_draw()
-    self.update_live_preview(self.current_focus_num)
+    if self.hovered_number is not None or self.focused_number is not None:
+      self.update_live_preview(self.hovered_number or self.focused_number)
+    else:
+      self.clear_preview()
 
   def on_menu_color_prop_activated(self, _action, param):
     prop_name = param.get_string()
@@ -1131,8 +1142,38 @@ class MainWindow(Adw.ApplicationWindow):
     cr.move_to(width - ext.width - 2, bar_y + bar_h - 1)
     cr.show_text(max_str)
 
+  def clear_preview(self):
+    self.hovered_number = None
+    self.focused_number = None
+    self.centerpiece.add_css_class("empty")
+
+  def on_card_hover_enter(self, number):
+    self.hovered_number = number
+    self.update_live_preview(number)
+
+  def on_card_hover_leave(self, number):
+    if self.hovered_number == number:
+      self.hovered_number = None
+      if self.focused_number is None:
+        self.clear_preview()
+
+  def on_card_focus_enter(self, number):
+    self.focused_number = number
+    self.update_live_preview(number)
+
+  def on_card_focus_leave(self, number):
+    if self.focused_number == number:
+      self.focused_number = None
+      if self.hovered_number is None:
+        self.clear_preview()
+
   def update_live_preview(self, number):
+    if number is None or number not in self.app.elements:
+      self.clear_preview()
+      return
+
     self.current_focus_num = number
+    self.centerpiece.remove_css_class("empty")
     symbol, name, category = self.app.elements[number]
     overview = self.app.data.get("Overview", {}).get(number, {})
     thermal = self.app.data.get("Thermal", {}).get(number, {})
@@ -1191,11 +1232,13 @@ class MainWindow(Adw.ApplicationWindow):
     card.connect("clicked", lambda *_: self.open_element(number))
 
     motion = Gtk.EventControllerMotion()
-    motion.connect("enter", lambda *_: self.update_live_preview(number))
+    motion.connect("enter", lambda *_: self.on_card_hover_enter(number))
+    motion.connect("leave", lambda *_: self.on_card_hover_leave(number))
     card.add_controller(motion)
 
     focus = Gtk.EventControllerFocus()
-    focus.connect("enter", lambda *_: self.update_live_preview(number))
+    focus.connect("enter", lambda *_: self.on_card_focus_enter(number))
+    focus.connect("leave", lambda *_: self.on_card_focus_leave(number))
     card.add_controller(focus)
 
     inner = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
