@@ -341,9 +341,10 @@ button.element-card.dimmed {
 }
 
 .radioactive-icon {
-  font-size: 7.5pt;
-  font-weight: 700;
-  color: #c75000;
+  font-size: 8.5pt;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 /* Category Base Fills */
@@ -394,9 +395,10 @@ button.element-card.actinide:hover, button.legend-pill.actinide:hover { backgrou
 }
 
 .hero-tile-radio {
-  font-size: 10pt;
-  font-weight: 800;
-  color: #c75000;
+  font-size: 13pt;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 .hero-tile-sym {
@@ -776,7 +778,7 @@ class MainWindow(Adw.ApplicationWindow):
 
     self.centerpiece.append(self.hero_tile)
 
-    # Middle Section: Identity, Structure & Grouped Surface
+    # Middle Section: Identity, Structure & Vertical Grouped Surface
     mid_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=3, valign=Gtk.Align.CENTER)
 
     self.prev_name = Gtk.Label(label="Hydrogen", xalign=0)
@@ -789,38 +791,38 @@ class MainWindow(Adw.ApplicationWindow):
     self.prev_sub = Gtk.Label(label="Period 1, Group 1  •  Weight: 1.0080 u", xalign=0)
     self.prev_sub.add_css_class("hero-sub-label")
     self.prev_sub.set_ellipsize(Pango.EllipsizeMode.END)
-    self.prev_sub.set_width_chars(28)
-    self.prev_sub.set_max_width_chars(28)
+    self.prev_sub.set_width_chars(25)
+    self.prev_sub.set_max_width_chars(25)
     mid_box.append(self.prev_sub)
 
-    # Grouped Surface for Category, Phase, Valency
-    badge_surface = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6, margin_top=4)
+    # Vertical Grouped Surface for Category, Phase, Valency
+    badge_surface = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2, margin_top=4)
     badge_surface.add_css_class("grouped-surface")
 
-    self.prev_cat_badge = Gtk.Label(label="Nonmetal")
+    self.prev_cat_badge = Gtk.Label(label="Nonmetal", xalign=0)
     self.prev_cat_badge.add_css_class("grouped-surface-item")
-    self.prev_cat_badge.set_width_chars(12)
-    self.prev_cat_badge.set_max_width_chars(12)
+    self.prev_cat_badge.set_width_chars(16)
+    self.prev_cat_badge.set_max_width_chars(16)
     self.prev_cat_badge.set_ellipsize(Pango.EllipsizeMode.END)
     badge_surface.append(self.prev_cat_badge)
 
-    sep1 = Gtk.Separator(orientation=Gtk.Orientation.VERTICAL)
+    sep1 = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     badge_surface.append(sep1)
 
-    self.prev_phase_badge = Gtk.Label(label="Gas")
+    self.prev_phase_badge = Gtk.Label(label="Phase: Gas", xalign=0)
     self.prev_phase_badge.add_css_class("grouped-surface-item")
-    self.prev_phase_badge.set_width_chars(8)
-    self.prev_phase_badge.set_max_width_chars(8)
+    self.prev_phase_badge.set_width_chars(16)
+    self.prev_phase_badge.set_max_width_chars(16)
     self.prev_phase_badge.set_ellipsize(Pango.EllipsizeMode.END)
     badge_surface.append(self.prev_phase_badge)
 
-    sep2 = Gtk.Separator(orientation=Gtk.Orientation.VERTICAL)
+    sep2 = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
     badge_surface.append(sep2)
 
-    self.prev_val_badge = Gtk.Label(label="Val: +1, -1")
+    self.prev_val_badge = Gtk.Label(label="Val: +1, -1", xalign=0)
     self.prev_val_badge.add_css_class("grouped-surface-item")
-    self.prev_val_badge.set_width_chars(14)
-    self.prev_val_badge.set_max_width_chars(14)
+    self.prev_val_badge.set_width_chars(16)
+    self.prev_val_badge.set_max_width_chars(16)
     self.prev_val_badge.set_ellipsize(Pango.EllipsizeMode.END)
     badge_surface.append(self.prev_val_badge)
 
@@ -1087,8 +1089,8 @@ class MainWindow(Adw.ApplicationWindow):
     self.prev_name.set_label(name)
     self.prev_sub.set_label(f"Period {period}, {group_str}  •  Weight: {weight} u")
     self.prev_cat_badge.set_label(CATEGORY_SHORT.get(category, category))
-    self.prev_phase_badge.set_label(phase)
-    self.prev_val_badge.set_label(f"Val: {val}" if len(val) <= 12 else f"Val: {val[:10]}…")
+    self.prev_phase_badge.set_label(f"Phase: {phase}")
+    self.prev_val_badge.set_label(f"Valency: {val}" if len(val) <= 9 else f"Val: {val[:8]}…")
 
     self.prev_econf.set_label(f"Config: {econf}")
     self.prev_eneg.set_label(f"Electronegativity: {eneg}" if eneg != "—" else "Electronegativity: —")
