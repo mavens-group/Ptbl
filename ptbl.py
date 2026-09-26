@@ -136,8 +136,8 @@ RADIOACTIVE_ELEMENTS = {43, 61} | set(range(84, 119))
 
 TABS = {
     "Overview": [
-        "Symbol", "Atomic number", "Atomic mass (u)", "Oxidation states",
-        "Electronegativity", "Electron affinity (kJ/mol)"
+        "Symbol", "Atomic number", "Atomic mass", "Oxidation states",
+        "Electronegativity", "Electron affinity"
     ],
     "Thermal": [
         "Phase", "Melting point", "Boiling point", "Critical pressure",
@@ -145,9 +145,9 @@ TABS = {
         "Specific heat", "Adiabatic index", "Neel point", "Curie point"
     ],
     "Crystal": [
-        "Atomic radius (Å)", "Covalent radius (Å)", "van der Waals radius (Å)",
-        "Crystal structure", "Lattice parameter a (Å)",
-        "Lattice parameter b (Å)", "Lattice parameter c (Å)", "Space group",
+        "Atomic radius", "Covalent radius", "van der Waals radius",
+        "Crystal structure", "Lattice parameter a",
+        "Lattice parameter b", "Lattice parameter c", "Space group",
         "Space group number"
     ],
     "Electronic": [
@@ -222,7 +222,21 @@ def load_exported_data():
   return data
 
 
+SUBSCRIPTS_TRANS = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
 SUPERSCRIPTS_TRANS = str.maketrans("0123456789+-()n", "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁽⁾ⁿ")
+
+PROPERTY_UNITS = {
+    ("Overview", "Weight"): "u",
+    ("Overview", "Eaff"): "kJ/mol",
+    ("Crystal", "Atomrad"): "Å",
+    ("Crystal", "covrad"): "Å",
+    ("Crystal", "vandrad"): "Å",
+    ("Crystal", "latpar1"): "Å",
+    ("Crystal", "latpar2"): "Å",
+    ("Crystal", "latpar3"): "Å",
+    ("Electrical", "Sup"): "K",
+    ("Nuclear", "NCS"): "b",
+}
 
 
 def format_scientific_indices(val):
@@ -230,8 +244,8 @@ def format_scientific_indices(val):
   if val is None or val == "" or str(val).strip() in ("N/A", "—"):
     return "—"
   s = str(val).strip()
-  # Remove wikipedia citation artifacts like ^[140][note], [140], [note]
-  s = re.sub(r"\^?\[\d+\](?:\[[a-zA-Z0-9_ ]+\])?", "", s)
+  # Remove wikipedia citation artifacts like ^[140][note], ^[140], [note]
+  s = re.sub(r"\^\[\d+\](?:\[[a-zA-Z0-9_ ]+\])?", "", s)
   s = re.sub(r"\^?\[note(?:\s*\d+)?\]", "", s)
   s = s.strip()
   if s in ("N/A", ""):
@@ -241,6 +255,30 @@ def format_scientific_indices(val):
   # Standardize spacing around multiplication before power-of-10
   s = re.sub(r"(\d)\s*(?:[x*×]|&times;)\s*(10[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+)", r"\1 × \2", s)
   return s
+
+
+def format_space_group(val):
+  if not val or val == "N/A":
+    return "—"
+  s = str(val).strip()
+  s = re.sub(r"\[(\d+)\]", lambda m: m.group(1).translate(SUBSCRIPTS_TRANS), s)
+  s = re.sub(r"_\s*(\d)", r"\1̄", s)
+  return s
+
+
+def format_property_value(table, field, val):
+  """Uniformly format property values with units placed consistently beside the value."""
+  if val is None or val == "" or str(val).strip() in ("N/A", "—"):
+    return "—"
+  if table == "Crystal" and field == "spcN":
+    return format_space_group(val)
+  val_str = format_scientific_indices(val)
+  if val_str == "—":
+    return "—"
+  unit = PROPERTY_UNITS.get((table, field))
+  if unit and not val_str.endswith(unit):
+    val_str = f"{val_str} {unit}"
+  return val_str
 
 
 def superscript_configuration(value):
@@ -1366,15 +1404,15 @@ class ElementWindow(Adw.Window):
 
     for table, labels in TABS.items():
       row_data = app.data[table].get(number, {})
-      values = list(row_data.values())[2:]
-      page = self.build_properties_page(labels, values)
+      keys = list(row_data.keys())[2:]
+      page = self.build_properties_page(table, labels, keys, row_data)
       icon = icons.get(table, "document-properties-symbolic")
       stack.add_titled_with_icon(page, table, table, icon)
 
     toolbar_view.set_content(main_box)
 
   @staticmethod
-  def build_properties_page(labels, values):
+  def build_properties_page(table, labels, keys, row_data):
     scroller = Gtk.ScrolledWindow(vexpand=True,
                                   hexpand=True,
                                   hscrollbar_policy=Gtk.PolicyType.NEVER,
@@ -1388,8 +1426,8 @@ class ElementWindow(Adw.Window):
     list_box.set_margin_start(1)
     list_box.set_margin_end(1)
 
-    for label, value in zip(labels, values):
-      val_str = format_scientific_indices(value)
+    for label, key in zip(labels, keys):
+      val_str = format_property_value(table, key, row_data.get(key))
 
       row = Gtk.ListBoxRow()
       row.set_activatable(False)
