@@ -222,6 +222,27 @@ def load_exported_data():
   return data
 
 
+SUPERSCRIPTS_TRANS = str.maketrans("0123456789+-()n", "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁽⁾ⁿ")
+
+
+def format_scientific_indices(val):
+  """Format exponent indices (e.g. 10^7 -> 10⁷, 10^-8 -> 10⁻⁸) and clean citations."""
+  if val is None or val == "" or str(val).strip() in ("N/A", "—"):
+    return "—"
+  s = str(val).strip()
+  # Remove wikipedia citation artifacts like ^[140][note], [140], [note]
+  s = re.sub(r"\^?\[\d+\](?:\[[a-zA-Z0-9_ ]+\])?", "", s)
+  s = re.sub(r"\^?\[note(?:\s*\d+)?\]", "", s)
+  s = s.strip()
+  if s in ("N/A", ""):
+    return "—"
+  # Convert carets with integer/sign exponents to unicode superscripts
+  s = re.sub(r"\^([+-]?\d+)", lambda m: m.group(1).translate(SUPERSCRIPTS_TRANS), s)
+  # Standardize spacing around multiplication before power-of-10
+  s = re.sub(r"(\d)\s*(?:[x*×]|&times;)\s*(10[⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻]+)", r"\1 × \2", s)
+  return s
+
+
 def superscript_configuration(value):
   superscripts = str.maketrans("0123456789+-", "⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻")
   return re.sub(
@@ -263,7 +284,9 @@ def refresh_core_properties(data):
 def parse_numeric(val):
   if not val or val == "N/A":
     return None
-  val_str = str(val).split()[0]
+  val_clean = re.sub(r"\^?\[\d+\](?:\[[a-zA-Z0-9_ ]+\])?", "", str(val))
+  val_clean = re.sub(r"\^?\[note(?:\s*\d+)?\]", "", val_clean).strip()
+  val_str = val_clean.split()[0]
   try:
     return float(val_str)
   except ValueError:
@@ -1082,10 +1105,10 @@ class MainWindow(Adw.ApplicationWindow):
     val = overview.get("Val", "—")
     eneg = overview.get("Eneg", "—")
     phase = thermal.get("Phase", "Solid")
-    abm = thermal.get("AbM", "—")
-    abb = thermal.get("AbB", "—")
+    abm = format_scientific_indices(thermal.get("AbM", "—"))
+    abb = format_scientific_indices(thermal.get("AbB", "—"))
     econf = electronic.get("Econf", "—")
-    crys = crystal.get("crys", "—")
+    crys = format_scientific_indices(crystal.get("crys", "—"))
     is_radioactive = number in RADIOACTIVE_ELEMENTS
 
     col, row = self.num_to_pos.get(number, (1, 1))
@@ -1366,7 +1389,7 @@ class ElementWindow(Adw.Window):
     list_box.set_margin_end(1)
 
     for label, value in zip(labels, values):
-      val_str = str(value) if value not in (None, "", "N/A") else "—"
+      val_str = format_scientific_indices(value)
 
       row = Gtk.ListBoxRow()
       row.set_activatable(False)
