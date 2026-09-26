@@ -1338,7 +1338,7 @@ class ElementWindow(Adw.Window):
         "Crystal": "system-run-symbolic",
         "Electronic": "network-wired-symbolic",
         "Electrical": "battery-symbolic",
-        "Nuclear": "dialog-warning-symbolic",
+        "Nuclear": "applications-science-symbolic",
     }
 
     for table, labels in TABS.items():
@@ -1346,8 +1346,7 @@ class ElementWindow(Adw.Window):
       values = list(row_data.values())[2:]
       page = self.build_properties_page(labels, values)
       icon = icons.get(table, "document-properties-symbolic")
-      title = "Nuclear ☢" if table == "Nuclear" else table
-      stack.add_titled_with_icon(page, table, title, icon)
+      stack.add_titled_with_icon(page, table, table, icon)
 
     toolbar_view.set_content(main_box)
 
@@ -1385,11 +1384,20 @@ class ElementWindow(Adw.Window):
       lbl.add_css_class("prop-row-key")
       row_box.append(lbl)
 
-      val_lbl = Gtk.Label(label=val_str,
-                          xalign=1,
+      val_lbl = Gtk.Label(xalign=1,
                           halign=Gtk.Align.END,
                           hexpand=True,
-                          selectable=True)
+                          selectable=True,
+                          use_markup=True)
+      if "<" in val_str and ">" in val_str:
+        try:
+          Pango.parse_markup(val_str, -1, "\0")
+          val_lbl.set_markup(val_str)
+        except Exception:
+          val_lbl.set_text(val_str)
+      else:
+        val_lbl.set_text(val_str)
+
       val_lbl.add_css_class("prop-row-val")
       if val_str == "—":
         val_lbl.add_css_class("dim-label")
