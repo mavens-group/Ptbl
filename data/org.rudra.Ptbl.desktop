@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Periodic Table
+Comment=Explore chemical elements and their properties
+Keywords=periodic;table;chemistry;elements;
+Exec=ptbl
+Icon=org.rudra.Ptbl
+Terminal=false
+Type=Application
+Categories=GTK;Education;Chemistry;
+StartupNotify=true

@@ -1,0 +1,1182 @@
+[
+    {
+        "Properties": "1",
+        "Name": "Hydrogen",
+        "Symbol": "H",
+        "Number": "1",
+        "Weight": "1.00794",
+        "Val": "1",
+        "Eneg": "2.2",
+        "Eaff": "72.8 "
+    },
+    {
+        "Properties": "2",
+        "Name": "Helium",
+        "Symbol": "He",
+        "Number": "2",
+        "Weight": "4.002602",
+        "Val": "0",
+        "Eneg": "N/A",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "3",
+        "Name": "Lithium",
+        "Symbol": "Li",
+        "Number": "3",
+        "Weight": "6.941",
+        "Val": "1",
+        "Eneg": "0.98",
+        "Eaff": "59.6 "
+    },
+    {
+        "Properties": "4",
+        "Name": "Beryllium",
+        "Symbol": "Be",
+        "Number": "4",
+        "Weight": "9.012182",
+        "Val": "2",
+        "Eneg": "1.57",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "5",
+        "Name": "Boron",
+        "Symbol": "B",
+        "Number": "5",
+        "Weight": "10.811",
+        "Val": "3",
+        "Eneg": "2.04",
+        "Eaff": "26.7 "
+    },
+    {
+        "Properties": "6",
+        "Name": "Carbon",
+        "Symbol": "C",
+        "Number": "6",
+        "Weight": "12.0107",
+        "Val": "4",
+        "Eneg": "2.55",
+        "Eaff": "153.9 "
+    },
+    {
+        "Properties": "7",
+        "Name": "Nitrogen",
+        "Symbol": "N",
+        "Number": "7",
+        "Weight": "14.0067",
+        "Val": "3",
+        "Eneg": "3.04",
+        "Eaff": "7 "
+    },
+    {
+        "Properties": "8",
+        "Name": "Oxygen",
+        "Symbol": "O",
+        "Number": "8",
+        "Weight": "15.9994",
+        "Val": "2",
+        "Eneg": "3.44",
+        "Eaff": "141 "
+    },
+    {
+        "Properties": "9",
+        "Name": "Fluorine",
+        "Symbol": "F",
+        "Number": "9",
+        "Weight": "18.9984032",
+        "Val": "1",
+        "Eneg": "3.98",
+        "Eaff": "328 "
+    },
+    {
+        "Properties": "10",
+        "Name": "Neon",
+        "Symbol": "Ne",
+        "Number": "10",
+        "Weight": "20.1797",
+        "Val": "0",
+        "Eneg": "N/A",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "11",
+        "Name": "Sodium",
+        "Symbol": "Na",
+        "Number": "11",
+        "Weight": "22.98977",
+        "Val": "1",
+        "Eneg": "0.93",
+        "Eaff": "52.8 "
+    },
+    {
+        "Properties": "12",
+        "Name": "Magnesium",
+        "Symbol": "Mg",
+        "Number": "12",
+        "Weight": "24.305",
+        "Val": "2",
+        "Eneg": "1.31",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "13",
+        "Name": "Aluminium",
+        "Symbol": "Al",
+        "Number": "13",
+        "Weight": "26.981538",
+        "Val": "3",
+        "Eneg": "1.61",
+        "Eaff": "42.5 "
+    },
+    {
+        "Properties": "14",
+        "Name": "Silicon",
+        "Symbol": "Si",
+        "Number": "14",
+        "Weight": "28.0855",
+        "Val": "4",
+        "Eneg": "1.9",
+        "Eaff": "133.6 "
+    },
+    {
+        "Properties": "15",
+        "Name": "Phosphorus",
+        "Symbol": "P",
+        "Number": "15",
+        "Weight": "30.973761",
+        "Val": "5",
+        "Eneg": "2.19",
+        "Eaff": "72 "
+    },
+    {
+        "Properties": "16",
+        "Name": "Sulfur",
+        "Symbol": "S",
+        "Number": "16",
+        "Weight": "32.065",
+        "Val": "6",
+        "Eneg": "2.58",
+        "Eaff": "200 "
+    },
+    {
+        "Properties": "17",
+        "Name": "Chlorine",
+        "Symbol": "Cl",
+        "Number": "17",
+        "Weight": "35.453",
+        "Val": "5",
+        "Eneg": "3.16",
+        "Eaff": "349 "
+    },
+    {
+        "Properties": "18",
+        "Name": "Argon",
+        "Symbol": "Ar",
+        "Number": "18",
+        "Weight": "39.948",
+        "Val": "0",
+        "Eneg": "N/A",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "19",
+        "Name": "Potassium",
+        "Symbol": "K",
+        "Number": "19",
+        "Weight": "39.0983",
+        "Val": "1",
+        "Eneg": "0.82",
+        "Eaff": "48.4 "
+    },
+    {
+        "Properties": "20",
+        "Name": "Calcium",
+        "Symbol": "Ca",
+        "Number": "20",
+        "Weight": "40.078",
+        "Val": "2",
+        "Eneg": "1",
+        "Eaff": "2.37 "
+    },
+    {
+        "Properties": "21",
+        "Name": "Scandium",
+        "Symbol": "Sc",
+        "Number": "21",
+        "Weight": "44.95591",
+        "Val": "3",
+        "Eneg": "1.36",
+        "Eaff": "18.1 "
+    },
+    {
+        "Properties": "22",
+        "Name": "Titanium",
+        "Symbol": "Ti",
+        "Number": "22",
+        "Weight": "47.867",
+        "Val": "4",
+        "Eneg": "1.54",
+        "Eaff": "7.6 "
+    },
+    {
+        "Properties": "23",
+        "Name": "Vanadium",
+        "Symbol": "V",
+        "Number": "23",
+        "Weight": "50.9415",
+        "Val": "5",
+        "Eneg": "1.63",
+        "Eaff": "50.6 "
+    },
+    {
+        "Properties": "24",
+        "Name": "Chromium",
+        "Symbol": "Cr",
+        "Number": "24",
+        "Weight": "51.9961",
+        "Val": "6",
+        "Eneg": "1.66",
+        "Eaff": "64.3 "
+    },
+    {
+        "Properties": "25",
+        "Name": "Manganese",
+        "Symbol": "Mn",
+        "Number": "25",
+        "Weight": "54.938049",
+        "Val": "4",
+        "Eneg": "1.55",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "26",
+        "Name": "Iron",
+        "Symbol": "Fe",
+        "Number": "26",
+        "Weight": "55.845",
+        "Val": "3",
+        "Eneg": "1.83",
+        "Eaff": "15.7 "
+    },
+    {
+        "Properties": "27",
+        "Name": "Cobalt",
+        "Symbol": "Co",
+        "Number": "27",
+        "Weight": "58.9332",
+        "Val": "4",
+        "Eneg": "1.88",
+        "Eaff": "63.7 "
+    },
+    {
+        "Properties": "28",
+        "Name": "Nickel",
+        "Symbol": "Ni",
+        "Number": "28",
+        "Weight": "58.6934",
+        "Val": "2",
+        "Eneg": "1.91",
+        "Eaff": "112 "
+    },
+    {
+        "Properties": "29",
+        "Name": "Copper",
+        "Symbol": "Cu",
+        "Number": "29",
+        "Weight": "63.546",
+        "Val": "2",
+        "Eneg": "1.9",
+        "Eaff": "118.4 "
+    },
+    {
+        "Properties": "30",
+        "Name": "Zinc",
+        "Symbol": "Zn",
+        "Number": "30",
+        "Weight": "65.409",
+        "Val": "2",
+        "Eneg": "1.65",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "31",
+        "Name": "Gallium",
+        "Symbol": "Ga",
+        "Number": "31",
+        "Weight": "69.723",
+        "Val": "3",
+        "Eneg": "1.81",
+        "Eaff": "28.9 "
+    },
+    {
+        "Properties": "32",
+        "Name": "Germanium",
+        "Symbol": "Ge",
+        "Number": "32",
+        "Weight": "72.64",
+        "Val": "4",
+        "Eneg": "2.01",
+        "Eaff": "119 "
+    },
+    {
+        "Properties": "33",
+        "Name": "Arsenic",
+        "Symbol": "As",
+        "Number": "33",
+        "Weight": "74.9216",
+        "Val": "5",
+        "Eneg": "2.18",
+        "Eaff": "78 "
+    },
+    {
+        "Properties": "34",
+        "Name": "Selenium",
+        "Symbol": "Se",
+        "Number": "34",
+        "Weight": "78.96",
+        "Val": "6",
+        "Eneg": "2.55",
+        "Eaff": "195 "
+    },
+    {
+        "Properties": "35",
+        "Name": "Bromine",
+        "Symbol": "Br",
+        "Number": "35",
+        "Weight": "79.904",
+        "Val": "5",
+        "Eneg": "2.96",
+        "Eaff": "324.6 "
+    },
+    {
+        "Properties": "36",
+        "Name": "Krypton",
+        "Symbol": "Kr",
+        "Number": "36",
+        "Weight": "83.798",
+        "Val": "2",
+        "Eneg": "3",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "37",
+        "Name": "Rubidium",
+        "Symbol": "Rb",
+        "Number": "37",
+        "Weight": "85.4678",
+        "Val": "1",
+        "Eneg": "0.82",
+        "Eaff": "46.9 "
+    },
+    {
+        "Properties": "38",
+        "Name": "Strontium",
+        "Symbol": "Sr",
+        "Number": "38",
+        "Weight": "87.62",
+        "Val": "2",
+        "Eneg": "0.95",
+        "Eaff": "5.03 "
+    },
+    {
+        "Properties": "39",
+        "Name": "Yttrium",
+        "Symbol": "Y",
+        "Number": "39",
+        "Weight": "88.90585",
+        "Val": "3",
+        "Eneg": "1.22",
+        "Eaff": "29.6 "
+    },
+    {
+        "Properties": "40",
+        "Name": "Zirconium",
+        "Symbol": "Zr",
+        "Number": "40",
+        "Weight": "91.224",
+        "Val": "4",
+        "Eneg": "1.33",
+        "Eaff": "41.1 "
+    },
+    {
+        "Properties": "41",
+        "Name": "Niobium",
+        "Symbol": "Nb",
+        "Number": "41",
+        "Weight": "92.90638",
+        "Val": "5",
+        "Eneg": "1.6",
+        "Eaff": "86.1 "
+    },
+    {
+        "Properties": "42",
+        "Name": "Molybdenum",
+        "Symbol": "Mo",
+        "Number": "42",
+        "Weight": "95.94",
+        "Val": "6",
+        "Eneg": "2.16",
+        "Eaff": "71.9 "
+    },
+    {
+        "Properties": "43",
+        "Name": "Technetium",
+        "Symbol": "Tc",
+        "Number": "43",
+        "Weight": "98",
+        "Val": "6",
+        "Eneg": "1.9",
+        "Eaff": "53 "
+    },
+    {
+        "Properties": "44",
+        "Name": "Ruthenium",
+        "Symbol": "Ru",
+        "Number": "44",
+        "Weight": "101.07",
+        "Val": "6",
+        "Eneg": "2.2",
+        "Eaff": "101.3 "
+    },
+    {
+        "Properties": "45",
+        "Name": "Rhodium",
+        "Symbol": "Rh",
+        "Number": "45",
+        "Weight": "102.9055",
+        "Val": "6",
+        "Eneg": "2.28",
+        "Eaff": "109.7 "
+    },
+    {
+        "Properties": "46",
+        "Name": "Palladium",
+        "Symbol": "Pd",
+        "Number": "46",
+        "Weight": "106.42",
+        "Val": "4",
+        "Eneg": "2.2",
+        "Eaff": "53.7 "
+    },
+    {
+        "Properties": "47",
+        "Name": "Silver",
+        "Symbol": "Ag",
+        "Number": "47",
+        "Weight": "107.8682",
+        "Val": "1",
+        "Eneg": "1.93",
+        "Eaff": "125.6 "
+    },
+    {
+        "Properties": "48",
+        "Name": "Cadmium",
+        "Symbol": "Cd",
+        "Number": "48",
+        "Weight": "112.411",
+        "Val": "2",
+        "Eneg": "1.69",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "49",
+        "Name": "Indium",
+        "Symbol": "In",
+        "Number": "49",
+        "Weight": "114.818",
+        "Val": "3",
+        "Eneg": "1.78",
+        "Eaff": "28.9 "
+    },
+    {
+        "Properties": "50",
+        "Name": "Tin",
+        "Symbol": "Sn",
+        "Number": "50",
+        "Weight": "118.71",
+        "Val": "4",
+        "Eneg": "1.96",
+        "Eaff": "107.3 "
+    },
+    {
+        "Properties": "51",
+        "Name": "Antimony",
+        "Symbol": "Sb",
+        "Number": "51",
+        "Weight": "121.76",
+        "Val": "5",
+        "Eneg": "2.05",
+        "Eaff": "103.2 "
+    },
+    {
+        "Properties": "52",
+        "Name": "Tellurium",
+        "Symbol": "Te",
+        "Number": "52",
+        "Weight": "127.6",
+        "Val": "6",
+        "Eneg": "2.1",
+        "Eaff": "190.2 "
+    },
+    {
+        "Properties": "53",
+        "Name": "Iodine",
+        "Symbol": "I",
+        "Number": "53",
+        "Weight": "126.90447",
+        "Val": "7",
+        "Eneg": "2.66",
+        "Eaff": "295.2 "
+    },
+    {
+        "Properties": "54",
+        "Name": "Xenon",
+        "Symbol": "Xe",
+        "Number": "54",
+        "Weight": "131.293",
+        "Val": "6",
+        "Eneg": "2.6",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "55",
+        "Name": "Caesium",
+        "Symbol": "Cs",
+        "Number": "55",
+        "Weight": "132.90545",
+        "Val": "1",
+        "Eneg": "0.79",
+        "Eaff": "45.5 "
+    },
+    {
+        "Properties": "56",
+        "Name": "Barium",
+        "Symbol": "Ba",
+        "Number": "56",
+        "Weight": "137.327",
+        "Val": "2",
+        "Eneg": "0.89",
+        "Eaff": "13.95 "
+    },
+    {
+        "Properties": "57",
+        "Name": "Lanthanum",
+        "Symbol": "La",
+        "Number": "57",
+        "Weight": "138.9055",
+        "Val": "3",
+        "Eneg": "1.1",
+        "Eaff": "48 "
+    },
+    {
+        "Properties": "58",
+        "Name": "Cerium",
+        "Symbol": "Ce",
+        "Number": "58",
+        "Weight": "140.116",
+        "Val": "4",
+        "Eneg": "1.12",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "59",
+        "Name": "Praseodymium",
+        "Symbol": "Pr",
+        "Number": "59",
+        "Weight": "140.90765",
+        "Val": "4",
+        "Eneg": "1.13",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "60",
+        "Name": "Neodymium",
+        "Symbol": "Nd",
+        "Number": "60",
+        "Weight": "144.24",
+        "Val": "3",
+        "Eneg": "1.14",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "61",
+        "Name": "Promethium",
+        "Symbol": "Pm",
+        "Number": "61",
+        "Weight": "145",
+        "Val": "3",
+        "Eneg": "N/A",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "62",
+        "Name": "Samarium",
+        "Symbol": "Sm",
+        "Number": "62",
+        "Weight": "150.36",
+        "Val": "3",
+        "Eneg": "1.17",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "63",
+        "Name": "Europium",
+        "Symbol": "Eu",
+        "Number": "63",
+        "Weight": "151.964",
+        "Val": "3",
+        "Eneg": "N/A",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "64",
+        "Name": "Gadolinium",
+        "Symbol": "Gd",
+        "Number": "64",
+        "Weight": "157.25",
+        "Val": "3",
+        "Eneg": "1.2",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "65",
+        "Name": "Terbium",
+        "Symbol": "Tb",
+        "Number": "65",
+        "Weight": "158.92534",
+        "Val": "3",
+        "Eneg": "N/A",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "66",
+        "Name": "Dysprosium",
+        "Symbol": "Dy",
+        "Number": "66",
+        "Weight": "162.5",
+        "Val": "3",
+        "Eneg": "1.22",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "67",
+        "Name": "Holmium",
+        "Symbol": "Ho",
+        "Number": "67",
+        "Weight": "164.93032",
+        "Val": "3",
+        "Eneg": "1.23",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "68",
+        "Name": "Erbium",
+        "Symbol": "Er",
+        "Number": "68",
+        "Weight": "167.259",
+        "Val": "3",
+        "Eneg": "1.24",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "69",
+        "Name": "Thulium",
+        "Symbol": "Tm",
+        "Number": "69",
+        "Weight": "168.93421",
+        "Val": "3",
+        "Eneg": "1.25",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "70",
+        "Name": "Ytterbium",
+        "Symbol": "Yb",
+        "Number": "70",
+        "Weight": "173.04",
+        "Val": "3",
+        "Eneg": "N/A",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "71",
+        "Name": "Lutetium",
+        "Symbol": "Lu",
+        "Number": "71",
+        "Weight": "174.967",
+        "Val": "3",
+        "Eneg": "1.27",
+        "Eaff": "50 "
+    },
+    {
+        "Properties": "72",
+        "Name": "Hafnium",
+        "Symbol": "Hf",
+        "Number": "72",
+        "Weight": "178.49",
+        "Val": "4",
+        "Eneg": "1.3",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "73",
+        "Name": "Tantalum",
+        "Symbol": "Ta",
+        "Number": "73",
+        "Weight": "180.9479",
+        "Val": "5",
+        "Eneg": "1.5",
+        "Eaff": "31 "
+    },
+    {
+        "Properties": "74",
+        "Name": "Tungsten",
+        "Symbol": "W",
+        "Number": "74",
+        "Weight": "183.84",
+        "Val": "6",
+        "Eneg": "2.36",
+        "Eaff": "78.6 "
+    },
+    {
+        "Properties": "75",
+        "Name": "Rhenium",
+        "Symbol": "Re",
+        "Number": "75",
+        "Weight": "186.207",
+        "Val": "7",
+        "Eneg": "1.9",
+        "Eaff": "14.5 "
+    },
+    {
+        "Properties": "76",
+        "Name": "Osmium",
+        "Symbol": "Os",
+        "Number": "76",
+        "Weight": "190.23",
+        "Val": "6",
+        "Eneg": "2.2",
+        "Eaff": "106.1 "
+    },
+    {
+        "Properties": "77",
+        "Name": "Iridium",
+        "Symbol": "Ir",
+        "Number": "77",
+        "Weight": "192.217",
+        "Val": "6",
+        "Eneg": "2.2",
+        "Eaff": "151 "
+    },
+    {
+        "Properties": "78",
+        "Name": "Platinum",
+        "Symbol": "Pt",
+        "Number": "78",
+        "Weight": "195.078",
+        "Val": "6",
+        "Eneg": "2.28",
+        "Eaff": "205.3 "
+    },
+    {
+        "Properties": "79",
+        "Name": "Gold",
+        "Symbol": "Au",
+        "Number": "79",
+        "Weight": "196.96655",
+        "Val": "5",
+        "Eneg": "2.54",
+        "Eaff": "222.8 "
+    },
+    {
+        "Properties": "80",
+        "Name": "Mercury",
+        "Symbol": "Hg",
+        "Number": "80",
+        "Weight": "200.59",
+        "Val": "2",
+        "Eneg": "2",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "81",
+        "Name": "Thallium",
+        "Symbol": "Tl",
+        "Number": "81",
+        "Weight": "204.3833",
+        "Val": "3",
+        "Eneg": "1.62",
+        "Eaff": "19.2 "
+    },
+    {
+        "Properties": "82",
+        "Name": "Lead",
+        "Symbol": "Pb",
+        "Number": "82",
+        "Weight": "207.2",
+        "Val": "4",
+        "Eneg": "2.33",
+        "Eaff": "35.1 "
+    },
+    {
+        "Properties": "83",
+        "Name": "Bismuth",
+        "Symbol": "Bi",
+        "Number": "83",
+        "Weight": "208.98038",
+        "Val": "5",
+        "Eneg": "2.02",
+        "Eaff": "91.2 "
+    },
+    {
+        "Properties": "84",
+        "Name": "Polonium",
+        "Symbol": "Po",
+        "Number": "84",
+        "Weight": "209",
+        "Val": "6",
+        "Eneg": "2",
+        "Eaff": "183.3 "
+    },
+    {
+        "Properties": "85",
+        "Name": "Astatine",
+        "Symbol": "At",
+        "Number": "85",
+        "Weight": "210",
+        "Val": "7",
+        "Eneg": "2.2",
+        "Eaff": "270.1 "
+    },
+    {
+        "Properties": "86",
+        "Name": "Radon",
+        "Symbol": "Rn",
+        "Number": "86",
+        "Weight": "222",
+        "Val": "6",
+        "Eneg": "N/A",
+        "Eaff": "0 "
+    },
+    {
+        "Properties": "87",
+        "Name": "Francium",
+        "Symbol": "Fr",
+        "Number": "87",
+        "Weight": "223",
+        "Val": "1",
+        "Eneg": "0.7",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "88",
+        "Name": "Radium",
+        "Symbol": "Ra",
+        "Number": "88",
+        "Weight": "226",
+        "Val": "2",
+        "Eneg": "0.9",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "89",
+        "Name": "Actinium",
+        "Symbol": "Ac",
+        "Number": "89",
+        "Weight": "227",
+        "Val": "3",
+        "Eneg": "1.1",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "90",
+        "Name": "Thorium",
+        "Symbol": "Th",
+        "Number": "90",
+        "Weight": "232.0381",
+        "Val": "4",
+        "Eneg": "1.3",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "91",
+        "Name": "Protactinium",
+        "Symbol": "Pa",
+        "Number": "91",
+        "Weight": "231.03588",
+        "Val": "5",
+        "Eneg": "1.5",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "92",
+        "Name": "Uranium",
+        "Symbol": "U",
+        "Number": "92",
+        "Weight": "238.02891",
+        "Val": "6",
+        "Eneg": "1.38",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "93",
+        "Name": "Neptunium",
+        "Symbol": "Np",
+        "Number": "93",
+        "Weight": "237",
+        "Val": "6",
+        "Eneg": "1.36",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "94",
+        "Name": "Plutonium",
+        "Symbol": "Pu",
+        "Number": "94",
+        "Weight": "244",
+        "Val": "6",
+        "Eneg": "1.28",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "95",
+        "Name": "Americium",
+        "Symbol": "Am",
+        "Number": "95",
+        "Weight": "243",
+        "Val": "4",
+        "Eneg": "1.3",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "96",
+        "Name": "Curium",
+        "Symbol": "Cm",
+        "Number": "96",
+        "Weight": "247",
+        "Val": "4",
+        "Eneg": "1.3",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "97",
+        "Name": "Berkelium",
+        "Symbol": "Bk",
+        "Number": "97",
+        "Weight": "247",
+        "Val": "4",
+        "Eneg": "1.3",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "98",
+        "Name": "Californium",
+        "Symbol": "Cf",
+        "Number": "98",
+        "Weight": "251",
+        "Val": "4",
+        "Eneg": "1.3",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "99",
+        "Name": "Einsteinium",
+        "Symbol": "Es",
+        "Number": "99",
+        "Weight": "252",
+        "Val": "4",
+        "Eneg": "1.3",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "100",
+        "Name": "Fermium",
+        "Symbol": "Fm",
+        "Number": "100",
+        "Weight": "257",
+        "Val": "3",
+        "Eneg": "1.3",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "101",
+        "Name": "Mendelevium",
+        "Symbol": "Md",
+        "Number": "101",
+        "Weight": "258",
+        "Val": "3",
+        "Eneg": "1.3",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "102",
+        "Name": "Nobelium",
+        "Symbol": "No",
+        "Number": "102",
+        "Weight": "259",
+        "Val": "3",
+        "Eneg": "1.3",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "103",
+        "Name": "Lawrencium",
+        "Symbol": "Lr",
+        "Number": "103",
+        "Weight": "262",
+        "Val": "3",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "104",
+        "Name": "Rutherfordium",
+        "Symbol": "Rf",
+        "Number": "104",
+        "Weight": "261",
+        "Val": "4",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "105",
+        "Name": "Dubnium",
+        "Symbol": "Db",
+        "Number": "105",
+        "Weight": "262",
+        "Val": "5",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "106",
+        "Name": "Seaborgium",
+        "Symbol": "Sg",
+        "Number": "106",
+        "Weight": "266",
+        "Val": "6",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "107",
+        "Name": "Bohrium",
+        "Symbol": "Bh",
+        "Number": "107",
+        "Weight": "264",
+        "Val": "7",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "108",
+        "Name": "Hassium",
+        "Symbol": "Hs",
+        "Number": "108",
+        "Weight": "277",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "109",
+        "Name": "Meitnerium",
+        "Symbol": "Mt",
+        "Number": "109",
+        "Weight": "268",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "110",
+        "Name": "Darmstadtium",
+        "Symbol": "Ds",
+        "Number": "110",
+        "Weight": "281",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "111",
+        "Name": "Roentgenium",
+        "Symbol": "Rg",
+        "Number": "111",
+        "Weight": "272",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "112",
+        "Name": "Copernicium",
+        "Symbol": "Cn",
+        "Number": "112",
+        "Weight": "285",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "113",
+        "Name": "Nihonium",
+        "Symbol": "Nh",
+        "Number": "113",
+        "Weight": "284",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "114",
+        "Name": "Flerovium",
+        "Symbol": "Fl",
+        "Number": "114",
+        "Weight": "289",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "115",
+        "Name": "Moscovium",
+        "Symbol": "Mc",
+        "Number": "115",
+        "Weight": "288",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "116",
+        "Name": "Livermorium",
+        "Symbol": "Lv",
+        "Number": "116",
+        "Weight": "292",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "117",
+        "Name": "Tennessine",
+        "Symbol": "Ts",
+        "Number": "117",
+        "Weight": "N/A",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Oganesson",
+        "Symbol": "Og",
+        "Number": "118",
+        "Weight": "294",
+        "Val": "N/A",
+        "Eneg": "N/A",
+        "Eaff": "N/A"
+    }
+]

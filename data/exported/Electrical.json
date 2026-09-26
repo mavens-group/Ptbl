@@ -1,0 +1,962 @@
+[
+    {
+        "Properties": "1",
+        "Name": "Hydrogen",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "2",
+        "Name": "Helium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "3",
+        "Name": "Lithium",
+        "Eltype": "Conductor",
+        "Econd": "1.1\u00d710^7 S/m",
+        "Eress": "9.4\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "4",
+        "Name": "Beryllium",
+        "Eltype": "Conductor",
+        "Econd": "2.5\u00d710^7 S/m",
+        "Eress": "4\u00d710^-8 m \u2126",
+        "Sup": "0.026"
+    },
+    {
+        "Properties": "5",
+        "Name": "Boron",
+        "Eltype": "Insulator",
+        "Econd": "0.0001 S/m",
+        "Eress": "10000 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "6",
+        "Name": "Carbon",
+        "Eltype": "Conductor^[209][note]",
+        "Econd": "1\u00d710^5 S/m^[211][note]",
+        "Eress": "1\u00d710^-5 m \u2126^[213][note]",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "7",
+        "Name": "Nitrogen",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "8",
+        "Name": "Oxygen",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "9",
+        "Name": "Fluorine",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "10",
+        "Name": "Neon",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "11",
+        "Name": "Sodium",
+        "Eltype": "Conductor",
+        "Econd": "2.1\u00d710^7 S/m",
+        "Eress": "4.7\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "12",
+        "Name": "Magnesium",
+        "Eltype": "Conductor",
+        "Econd": "2.3\u00d710^7 S/m",
+        "Eress": "4.4\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "13",
+        "Name": "Aluminium",
+        "Eltype": "Conductor",
+        "Econd": "3.8\u00d710^7 S/m",
+        "Eress": "2.6\u00d710^-8 m \u2126",
+        "Sup": "1.175"
+    },
+    {
+        "Properties": "14",
+        "Name": "Silicon",
+        "Eltype": "Semiconductor",
+        "Econd": "1\u00d710^3 S/m",
+        "Eress": "0.001 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "15",
+        "Name": "Phosphorus",
+        "Eltype": "Conductor",
+        "Econd": "1\u00d710^7 S/m",
+        "Eress": "1\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "16",
+        "Name": "Sulfur",
+        "Eltype": "Insulator",
+        "Econd": "1\u00d710^-15 S/m",
+        "Eress": "1\u00d710^15 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "17",
+        "Name": "Chlorine",
+        "Eltype": "Insulator",
+        "Econd": "0.01 S/m",
+        "Eress": "100 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "18",
+        "Name": "Argon",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "19",
+        "Name": "Potassium",
+        "Eltype": "Conductor",
+        "Econd": "1.4\u00d710^7 S/m",
+        "Eress": "7\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "20",
+        "Name": "Calcium",
+        "Eltype": "Conductor",
+        "Econd": "2.9\u00d710^7 S/m",
+        "Eress": "3.4\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "21",
+        "Name": "Scandium",
+        "Eltype": "Conductor",
+        "Econd": "1.8\u00d710^6 S/m",
+        "Eress": "5.5\u00d710^-7 m \u2126",
+        "Sup": "0.05"
+    },
+    {
+        "Properties": "22",
+        "Name": "Titanium",
+        "Eltype": "Conductor",
+        "Econd": "2.5\u00d710^6 S/m",
+        "Eress": "4\u00d710^-7 m \u2126",
+        "Sup": "0.4"
+    },
+    {
+        "Properties": "23",
+        "Name": "Vanadium",
+        "Eltype": "Conductor",
+        "Econd": "5\u00d710^6 S/m",
+        "Eress": "2\u00d710^-7 m \u2126",
+        "Sup": "5.4"
+    },
+    {
+        "Properties": "24",
+        "Name": "Chromium",
+        "Eltype": "Conductor",
+        "Econd": "7.9\u00d710^6 S/m",
+        "Eress": "1.3\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "25",
+        "Name": "Manganese",
+        "Eltype": "Conductor",
+        "Econd": "6.2\u00d710^5 S/m",
+        "Eress": "1.6\u00d710^-6 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "26",
+        "Name": "Iron",
+        "Eltype": "Conductor",
+        "Econd": "1\u00d710^7 S/m",
+        "Eress": "9.7\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "27",
+        "Name": "Cobalt",
+        "Eltype": "Conductor",
+        "Econd": "1.7\u00d710^7 S/m",
+        "Eress": "6\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "28",
+        "Name": "Nickel",
+        "Eltype": "Conductor",
+        "Econd": "1.4\u00d710^7 S/m",
+        "Eress": "7\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "29",
+        "Name": "Copper",
+        "Eltype": "Conductor",
+        "Econd": "5.9\u00d710^7 S/m",
+        "Eress": "1.7\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "30",
+        "Name": "Zinc",
+        "Eltype": "Conductor",
+        "Econd": "1.7\u00d710^7 S/m",
+        "Eress": "5.9\u00d710^-8 m \u2126",
+        "Sup": "0.85"
+    },
+    {
+        "Properties": "31",
+        "Name": "Gallium",
+        "Eltype": "Conductor",
+        "Econd": "7.1\u00d710^6 S/m",
+        "Eress": "1.4\u00d710^-7 m \u2126",
+        "Sup": "1.083"
+    },
+    {
+        "Properties": "32",
+        "Name": "Germanium",
+        "Eltype": "Semiconductor",
+        "Econd": "2\u00d710^3 S/m",
+        "Eress": "0.0005 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "33",
+        "Name": "Arsenic",
+        "Eltype": "Conductor",
+        "Econd": "3.3\u00d710^6 S/m",
+        "Eress": "3\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "34",
+        "Name": "Selenium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "35",
+        "Name": "Bromine",
+        "Eltype": "Insulator",
+        "Econd": "1\u00d710^-10 S/m",
+        "Eress": "1\u00d710^10 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "36",
+        "Name": "Krypton",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "37",
+        "Name": "Rubidium",
+        "Eltype": "Conductor",
+        "Econd": "8.3\u00d710^6 S/m",
+        "Eress": "1.2\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "38",
+        "Name": "Strontium",
+        "Eltype": "Conductor",
+        "Econd": "7.7\u00d710^6 S/m",
+        "Eress": "1.3\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "39",
+        "Name": "Yttrium",
+        "Eltype": "Conductor",
+        "Econd": "1.8\u00d710^6 S/m",
+        "Eress": "5.6\u00d710^-7 m \u2126",
+        "Sup": "1.3"
+    },
+    {
+        "Properties": "40",
+        "Name": "Zirconium",
+        "Eltype": "Conductor",
+        "Econd": "2.4\u00d710^6 S/m",
+        "Eress": "4.2\u00d710^-7 m \u2126",
+        "Sup": "0.61"
+    },
+    {
+        "Properties": "41",
+        "Name": "Niobium",
+        "Eltype": "Conductor",
+        "Econd": "6.7\u00d710^6 S/m",
+        "Eress": "1.5\u00d710^-7 m \u2126",
+        "Sup": "9.25"
+    },
+    {
+        "Properties": "42",
+        "Name": "Molybdenum",
+        "Eltype": "Conductor",
+        "Econd": "2\u00d710^7 S/m",
+        "Eress": "5\u00d710^-8 m \u2126",
+        "Sup": "0.915"
+    },
+    {
+        "Properties": "43",
+        "Name": "Technetium",
+        "Eltype": "Conductor",
+        "Econd": "5\u00d710^6 S/m",
+        "Eress": "2\u00d710^-7 m \u2126",
+        "Sup": "7.8"
+    },
+    {
+        "Properties": "44",
+        "Name": "Ruthenium",
+        "Eltype": "Conductor",
+        "Econd": "1.4\u00d710^7 S/m",
+        "Eress": "7.1\u00d710^-8 m \u2126",
+        "Sup": "0.49"
+    },
+    {
+        "Properties": "45",
+        "Name": "Rhodium",
+        "Eltype": "Conductor",
+        "Econd": "2.3\u00d710^7 S/m",
+        "Eress": "4.3\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "46",
+        "Name": "Palladium",
+        "Eltype": "Conductor",
+        "Econd": "1\u00d710^7 S/m",
+        "Eress": "1\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "47",
+        "Name": "Silver",
+        "Eltype": "Conductor",
+        "Econd": "6.2\u00d710^7 S/m",
+        "Eress": "1.6\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "48",
+        "Name": "Cadmium",
+        "Eltype": "Conductor",
+        "Econd": "1.4\u00d710^7 S/m",
+        "Eress": "7\u00d710^-8 m \u2126",
+        "Sup": "0.517"
+    },
+    {
+        "Properties": "49",
+        "Name": "Indium",
+        "Eltype": "Conductor",
+        "Econd": "1.2\u00d710^7 S/m",
+        "Eress": "8\u00d710^-8 m \u2126",
+        "Sup": "3.41"
+    },
+    {
+        "Properties": "50",
+        "Name": "Tin",
+        "Eltype": "Conductor",
+        "Econd": "9.1\u00d710^6 S/m",
+        "Eress": "1.1\u00d710^-7 m \u2126",
+        "Sup": "3.72"
+    },
+    {
+        "Properties": "51",
+        "Name": "Antimony",
+        "Eltype": "Conductor",
+        "Econd": "2.5\u00d710^6 S/m",
+        "Eress": "4\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "52",
+        "Name": "Tellurium",
+        "Eltype": "Semiconductor",
+        "Econd": "1\u00d710^4 S/m",
+        "Eress": "0.0001 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "53",
+        "Name": "Iodine",
+        "Eltype": "Insulator",
+        "Econd": "1\u00d710^-7 S/m",
+        "Eress": "1\u00d710^7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "54",
+        "Name": "Xenon",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "55",
+        "Name": "Caesium",
+        "Eltype": "Conductor",
+        "Econd": "5\u00d710^6 S/m",
+        "Eress": "2\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "56",
+        "Name": "Barium",
+        "Eltype": "Conductor",
+        "Econd": "2.9\u00d710^6 S/m",
+        "Eress": "3.5\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "57",
+        "Name": "Lanthanum",
+        "Eltype": "Conductor",
+        "Econd": "1.6\u00d710^6 S/m",
+        "Eress": "6.1\u00d710^-7 m \u2126",
+        "Sup": "4.88"
+    },
+    {
+        "Properties": "58",
+        "Name": "Cerium",
+        "Eltype": "Conductor",
+        "Econd": "1.4\u00d710^6 S/m",
+        "Eress": "7.4\u00d710^-7 m \u2126",
+        "Sup": "0.022"
+    },
+    {
+        "Properties": "59",
+        "Name": "Praseodymium",
+        "Eltype": "Conductor",
+        "Econd": "1.4\u00d710^6 S/m",
+        "Eress": "7\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "60",
+        "Name": "Neodymium",
+        "Eltype": "Conductor",
+        "Econd": "1.6\u00d710^6 S/m",
+        "Eress": "6.4\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "61",
+        "Name": "Promethium",
+        "Eltype": "Conductor",
+        "Econd": "1.3\u00d710^6 S/m",
+        "Eress": "7.5\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "62",
+        "Name": "Samarium",
+        "Eltype": "Conductor",
+        "Econd": "1.1\u00d710^6 S/m",
+        "Eress": "9.4\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "63",
+        "Name": "Europium",
+        "Eltype": "Conductor",
+        "Econd": "1.1\u00d710^6 S/m",
+        "Eress": "9\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "64",
+        "Name": "Gadolinium",
+        "Eltype": "Conductor",
+        "Econd": "7.7\u00d710^5 S/m",
+        "Eress": "1.3\u00d710^-6 m \u2126",
+        "Sup": "1.083"
+    },
+    {
+        "Properties": "65",
+        "Name": "Terbium",
+        "Eltype": "Conductor",
+        "Econd": "8.3\u00d710^5 S/m",
+        "Eress": "1.2\u00d710^-6 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "66",
+        "Name": "Dysprosium",
+        "Eltype": "Conductor",
+        "Econd": "1.1\u00d710^6 S/m",
+        "Eress": "9.1\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "67",
+        "Name": "Holmium",
+        "Eltype": "Conductor",
+        "Econd": "1.1\u00d710^6 S/m",
+        "Eress": "9.4\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "68",
+        "Name": "Erbium",
+        "Eltype": "Conductor",
+        "Econd": "1.2\u00d710^6 S/m",
+        "Eress": "8.6\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "69",
+        "Name": "Thulium",
+        "Eltype": "Conductor",
+        "Econd": "1.4\u00d710^6 S/m",
+        "Eress": "7\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "70",
+        "Name": "Ytterbium",
+        "Eltype": "Conductor",
+        "Econd": "3.6\u00d710^6 S/m",
+        "Eress": "2.8\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "71",
+        "Name": "Lutetium",
+        "Eltype": "Conductor",
+        "Econd": "1.8\u00d710^6 S/m",
+        "Eress": "5.6\u00d710^-7 m \u2126",
+        "Sup": "0.1"
+    },
+    {
+        "Properties": "72",
+        "Name": "Hafnium",
+        "Eltype": "Conductor",
+        "Econd": "3.3\u00d710^6 S/m",
+        "Eress": "3\u00d710^-7 m \u2126",
+        "Sup": "0.128"
+    },
+    {
+        "Properties": "73",
+        "Name": "Tantalum",
+        "Eltype": "Conductor",
+        "Econd": "7.7\u00d710^6 S/m",
+        "Eress": "1.3\u00d710^-7 m \u2126",
+        "Sup": "4.47"
+    },
+    {
+        "Properties": "74",
+        "Name": "Tungsten",
+        "Eltype": "Conductor",
+        "Econd": "2\u00d710^7 S/m",
+        "Eress": "5\u00d710^-8 m \u2126",
+        "Sup": "0.015"
+    },
+    {
+        "Properties": "75",
+        "Name": "Rhenium",
+        "Eltype": "Conductor",
+        "Econd": "5.6\u00d710^6 S/m",
+        "Eress": "1.8\u00d710^-7 m \u2126",
+        "Sup": "1.7"
+    },
+    {
+        "Properties": "76",
+        "Name": "Osmium",
+        "Eltype": "Conductor",
+        "Econd": "1.2\u00d710^7 S/m",
+        "Eress": "8.1\u00d710^-8 m \u2126",
+        "Sup": "0.66"
+    },
+    {
+        "Properties": "77",
+        "Name": "Iridium",
+        "Eltype": "Conductor",
+        "Econd": "2.1\u00d710^7 S/m",
+        "Eress": "4.7\u00d710^-8 m \u2126",
+        "Sup": "0.11"
+    },
+    {
+        "Properties": "78",
+        "Name": "Platinum",
+        "Eltype": "Conductor",
+        "Econd": "9.4\u00d710^6 S/m",
+        "Eress": "1.1\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "79",
+        "Name": "Gold",
+        "Eltype": "Conductor",
+        "Econd": "4.5\u00d710^7 S/m",
+        "Eress": "2.2\u00d710^-8 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "80",
+        "Name": "Mercury",
+        "Eltype": "Conductor",
+        "Econd": "1\u00d710^6 S/m",
+        "Eress": "9.6\u00d710^-7 m \u2126",
+        "Sup": "4.154"
+    },
+    {
+        "Properties": "81",
+        "Name": "Thallium",
+        "Eltype": "Conductor",
+        "Econd": "6.7\u00d710^6 S/m",
+        "Eress": "1.5\u00d710^-7 m \u2126",
+        "Sup": "2.38"
+    },
+    {
+        "Properties": "82",
+        "Name": "Lead",
+        "Eltype": "Conductor",
+        "Econd": "4.8\u00d710^6 S/m",
+        "Eress": "2.1\u00d710^-7 m \u2126",
+        "Sup": "7.2"
+    },
+    {
+        "Properties": "83",
+        "Name": "Bismuth",
+        "Eltype": "Conductor",
+        "Econd": "7.7\u00d710^5 S/m",
+        "Eress": "1.3\u00d710^-6 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "84",
+        "Name": "Polonium",
+        "Eltype": "Conductor",
+        "Econd": "2.3\u00d710^6 S/m",
+        "Eress": "4.3\u00d710^-7 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "85",
+        "Name": "Astatine",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "86",
+        "Name": "Radon",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "87",
+        "Name": "Francium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "88",
+        "Name": "Radium",
+        "Eltype": "Conductor",
+        "Econd": "1\u00d710^6 S/m",
+        "Eress": "1\u00d710^-6 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "89",
+        "Name": "Actinium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "90",
+        "Name": "Thorium",
+        "Eltype": "Conductor",
+        "Econd": "6.7\u00d710^6 S/m",
+        "Eress": "1.5\u00d710^-7 m \u2126",
+        "Sup": "1.38"
+    },
+    {
+        "Properties": "91",
+        "Name": "Protactinium",
+        "Eltype": "Conductor",
+        "Econd": "5.6\u00d710^6 S/m",
+        "Eress": "1.8\u00d710^-7 m \u2126",
+        "Sup": "1.4"
+    },
+    {
+        "Properties": "92",
+        "Name": "Uranium",
+        "Eltype": "Conductor",
+        "Econd": "3.6\u00d710^6 S/m",
+        "Eress": "2.8\u00d710^-7 m \u2126",
+        "Sup": "0.68"
+    },
+    {
+        "Properties": "93",
+        "Name": "Neptunium",
+        "Eltype": "Conductor",
+        "Econd": "8.3\u00d710^5 S/m",
+        "Eress": "1.2\u00d710^-6 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "94",
+        "Name": "Plutonium",
+        "Eltype": "Conductor",
+        "Econd": "6.7\u00d710^5 S/m",
+        "Eress": "1.5\u00d710^-6 m \u2126",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "95",
+        "Name": "Americium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "0.6"
+    },
+    {
+        "Properties": "96",
+        "Name": "Curium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "97",
+        "Name": "Berkelium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "98",
+        "Name": "Californium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "99",
+        "Name": "Einsteinium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "100",
+        "Name": "Fermium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "101",
+        "Name": "Mendelevium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "102",
+        "Name": "Nobelium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "103",
+        "Name": "Lawrencium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "104",
+        "Name": "Rutherfordium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "105",
+        "Name": "Dubnium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "106",
+        "Name": "Seaborgium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "107",
+        "Name": "Bohrium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "108",
+        "Name": "Hassium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "109",
+        "Name": "Meitnerium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "110",
+        "Name": "Darmstadtium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "111",
+        "Name": "Roentgenium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "112",
+        "Name": "Copernicium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "113",
+        "Name": "Nihonium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "114",
+        "Name": "Flerovium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "115",
+        "Name": "Moscovium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "116",
+        "Name": "Livermorium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "117",
+        "Name": "Tennessine",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Oganesson",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Ununoctium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Ununoctium",
+        "Eltype": "N/A",
+        "Econd": "N/A",
+        "Eress": "N/A",
+        "Sup": "N/A"
+    }
+]

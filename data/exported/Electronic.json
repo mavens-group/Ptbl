@@ -1,0 +1,962 @@
+[
+    {
+        "Properties": "1",
+        "Name": "Hydrogen",
+        "Econf": "1s<sup>1</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-2.48\u00d710^-8",
+        "molarmag": "-4.999\u00d710^-11"
+    },
+    {
+        "Properties": "2",
+        "Name": "Helium",
+        "Econf": "1s<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-5.9\u00d710^-9",
+        "molarmag": "-2.36\u00d710^-11"
+    },
+    {
+        "Properties": "3",
+        "Name": "Lithium",
+        "Econf": "[He]2s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "2.56\u00d710^-8",
+        "molarmag": "1.78\u00d710^-10"
+    },
+    {
+        "Properties": "4",
+        "Name": "Beryllium",
+        "Econf": "[He]2s<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.26\u00d710^-8",
+        "molarmag": "-1.136\u00d710^-10"
+    },
+    {
+        "Properties": "5",
+        "Name": "Boron",
+        "Econf": "[He]2s<sup>2</sup>2p<sup>1</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-8.7\u00d710^-9",
+        "molarmag": "-9.41\u00d710^-11"
+    },
+    {
+        "Properties": "6",
+        "Name": "Carbon",
+        "Econf": "[He]2s<sup>2</sup>2p<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-6.2\u00d710^-9",
+        "molarmag": "-7.45\u00d710^-11"
+    },
+    {
+        "Properties": "7",
+        "Name": "Nitrogen",
+        "Econf": "[He]2s<sup>2</sup>2p<sup>3</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-5.4\u00d710^-9",
+        "molarmag": "-1.5\u00d710^-10"
+    },
+    {
+        "Properties": "8",
+        "Name": "Oxygen",
+        "Econf": "[He]2s<sup>2</sup>2p<sup>4</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.335\u00d710^-6",
+        "molarmag": "4.27184\u00d710^-8"
+    },
+    {
+        "Properties": "9",
+        "Name": "Fluorine",
+        "Econf": "[He]2s<sup>2</sup>2p<sup>5</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "10",
+        "Name": "Neon",
+        "Econf": "[He]2s<sup>2</sup>2p<sup>6</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-4.1\u00d710^-9",
+        "molarmag": "-8.27\u00d710^-11"
+    },
+    {
+        "Properties": "11",
+        "Name": "Sodium",
+        "Econf": "[Ne]3s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "8.8\u00d710^-9",
+        "molarmag": "2\u00d710^-10"
+    },
+    {
+        "Properties": "12",
+        "Name": "Magnesium",
+        "Econf": "[Ne]3s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "6.9\u00d710^-9",
+        "molarmag": "1.68\u00d710^-10"
+    },
+    {
+        "Properties": "13",
+        "Name": "Aluminium",
+        "Econf": "[Ne]3s<sup>2</sup>3p<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "7.8\u00d710^-9",
+        "molarmag": "2.1\u00d710^-10"
+    },
+    {
+        "Properties": "14",
+        "Name": "Silicon",
+        "Econf": "[Ne]3s<sup>2</sup>3p<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.6\u00d710^-9",
+        "molarmag": "-4.49\u00d710^-11"
+    },
+    {
+        "Properties": "15",
+        "Name": "Phosphorus",
+        "Econf": "[Ne]3s<sup>2</sup>3p<sup>3</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.13\u00d710^-8",
+        "molarmag": "-3.5\u00d710^-10"
+    },
+    {
+        "Properties": "16",
+        "Name": "Sulfur",
+        "Econf": "[Ne]3s<sup>2</sup>3p<sup>4</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-6.2\u00d710^-9",
+        "molarmag": "-1.99\u00d710^-10"
+    },
+    {
+        "Properties": "17",
+        "Name": "Chlorine",
+        "Econf": "[Ne]3s<sup>2</sup>3p<sup>5</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-7.2\u00d710^-9",
+        "molarmag": "-5.11\u00d710^-10"
+    },
+    {
+        "Properties": "18",
+        "Name": "Argon",
+        "Econf": "[Ne]3s<sup>2</sup>3p<sup>6</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-6\u00d710^-9",
+        "molarmag": "-2.4\u00d710^-10"
+    },
+    {
+        "Properties": "19",
+        "Name": "Potassium",
+        "Econf": "[Ar]4s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "6.7\u00d710^-9",
+        "molarmag": "2.62\u00d710^-10"
+    },
+    {
+        "Properties": "20",
+        "Name": "Calcium",
+        "Econf": "[Ar]4s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.38\u00d710^-8",
+        "molarmag": "5.531\u00d710^-10"
+    },
+    {
+        "Properties": "21",
+        "Name": "Scandium",
+        "Econf": "[Ar]3d<sup>1</sup>4s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "8.8\u00d710^-8",
+        "molarmag": "3.956\u00d710^-9"
+    },
+    {
+        "Properties": "22",
+        "Name": "Titanium",
+        "Econf": "[Ar]3d<sup>2</sup>4s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "4.01\u00d710^-8",
+        "molarmag": "1.919\u00d710^-9"
+    },
+    {
+        "Properties": "23",
+        "Name": "Vanadium",
+        "Econf": "[Ar]3d<sup>3</sup>4s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "6.28\u00d710^-8",
+        "molarmag": "3.199\u00d710^-9"
+    },
+    {
+        "Properties": "24",
+        "Name": "Chromium",
+        "Econf": "[Ar]3d<sup>5</sup>4s<sup>1</sup>",
+        "Magt": "Antiferromagnetic",
+        "mags": "4.45\u00d710^-8",
+        "molarmag": "2.314\u00d710^-9"
+    },
+    {
+        "Properties": "25",
+        "Name": "Manganese",
+        "Econf": "[Ar]3d<sup>5</sup>4s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.21\u00d710^-7",
+        "molarmag": "6.6475\u00d710^-9"
+    },
+    {
+        "Properties": "26",
+        "Name": "Iron",
+        "Econf": "[Ar]3d<sup>6</sup>4s<sup>2</sup>",
+        "Magt": "Ferromagnetic",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "27",
+        "Name": "Cobalt",
+        "Econf": "[Ar]3d<sup>7</sup>4s<sup>2</sup>",
+        "Magt": "Ferromagnetic",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "28",
+        "Name": "Nickel",
+        "Econf": "[Ar]3d<sup>8</sup>4s<sup>2</sup>",
+        "Magt": "Ferromagnetic",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "29",
+        "Name": "Copper",
+        "Econf": "[Ar]3d<sup>10</sup>4s<sup>1</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.08\u00d710^-9",
+        "molarmag": "-6.86\u00d710^-11"
+    },
+    {
+        "Properties": "30",
+        "Name": "Zinc",
+        "Econf": "[Ar]3d<sup>10</sup>4s<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-2.21\u00d710^-9",
+        "molarmag": "-1.45\u00d710^-10"
+    },
+    {
+        "Properties": "31",
+        "Name": "Gallium",
+        "Econf": "[Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>1</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-3\u00d710^-9",
+        "molarmag": "-2.09\u00d710^-10"
+    },
+    {
+        "Properties": "32",
+        "Name": "Germanium",
+        "Econf": "[Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.5\u00d710^-9",
+        "molarmag": "-1.09\u00d710^-10"
+    },
+    {
+        "Properties": "33",
+        "Name": "Arsenic",
+        "Econf": "[Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>3</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-3.9\u00d710^-9",
+        "molarmag": "-2.92\u00d710^-10"
+    },
+    {
+        "Properties": "34",
+        "Name": "Selenium",
+        "Econf": "[Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>4</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-4\u00d710^-9",
+        "molarmag": "-3.16\u00d710^-10"
+    },
+    {
+        "Properties": "35",
+        "Name": "Bromine",
+        "Econf": "[Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>5</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-4.9\u00d710^-9",
+        "molarmag": "-7.83\u00d710^-10"
+    },
+    {
+        "Properties": "36",
+        "Name": "Krypton",
+        "Econf": "[Ar]3d<sup>10</sup>4s<sup>2</sup>4p<sup>6</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-4.4\u00d710^-9",
+        "molarmag": "-3.69\u00d710^-10"
+    },
+    {
+        "Properties": "37",
+        "Name": "Rubidium",
+        "Econf": "[Kr]5s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "2.6\u00d710^-9",
+        "molarmag": "2.22\u00d710^-10"
+    },
+    {
+        "Properties": "38",
+        "Name": "Strontium",
+        "Econf": "[Kr]5s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.32\u00d710^-9",
+        "molarmag": "1.16\u00d710^-10"
+    },
+    {
+        "Properties": "39",
+        "Name": "Yttrium",
+        "Econf": "[Kr]4d<sup>1</sup>5s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "6.66\u00d710^-8",
+        "molarmag": "5.921\u00d710^-9"
+    },
+    {
+        "Properties": "40",
+        "Name": "Zirconium",
+        "Econf": "[Kr]4d<sup>2</sup>5s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.68\u00d710^-8",
+        "molarmag": "1.53\u00d710^-9"
+    },
+    {
+        "Properties": "41",
+        "Name": "Niobium",
+        "Econf": "[Kr]4d<sup>4</sup>5s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "2.76\u00d710^-8",
+        "molarmag": "2.56\u00d710^-9"
+    },
+    {
+        "Properties": "42",
+        "Name": "Molybdenum",
+        "Econf": "[Kr]4d<sup>5</sup>5s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.17\u00d710^-8",
+        "molarmag": "1.122\u00d710^-9"
+    },
+    {
+        "Properties": "43",
+        "Name": "Technetium",
+        "Econf": "[Kr]4d<sup>5</sup>5s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "3.42\u00d710^-8",
+        "molarmag": "3.352\u00d710^-9"
+    },
+    {
+        "Properties": "44",
+        "Name": "Ruthenium",
+        "Econf": "[Kr]4d<sup>7</sup>5s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "5.42\u00d710^-9",
+        "molarmag": "5.48\u00d710^-10"
+    },
+    {
+        "Properties": "45",
+        "Name": "Rhodium",
+        "Econf": "[Kr]4d<sup>8</sup>5s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.36\u00d710^-8",
+        "molarmag": "1.4\u00d710^-9"
+    },
+    {
+        "Properties": "46",
+        "Name": "Palladium",
+        "Econf": "[Kr]4d<sup>10</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "6.57\u00d710^-8",
+        "molarmag": "6.992\u00d710^-9"
+    },
+    {
+        "Properties": "47",
+        "Name": "Silver",
+        "Econf": "[Kr]4d<sup>10</sup>5s<sup>1</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-2.27\u00d710^-9",
+        "molarmag": "-2.45\u00d710^-10"
+    },
+    {
+        "Properties": "48",
+        "Name": "Cadmium",
+        "Econf": "[Kr]4d<sup>10</sup>5s<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-2.3\u00d710^-9",
+        "molarmag": "-2.59\u00d710^-10"
+    },
+    {
+        "Properties": "49",
+        "Name": "Indium",
+        "Econf": "[Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>1</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.4\u00d710^-9",
+        "molarmag": "-1.61\u00d710^-10"
+    },
+    {
+        "Properties": "50",
+        "Name": "Tin",
+        "Econf": "[Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-3.1\u00d710^-9",
+        "molarmag": "-3.68\u00d710^-10"
+    },
+    {
+        "Properties": "51",
+        "Name": "Antimony",
+        "Econf": "[Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>3</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.09\u00d710^-8",
+        "molarmag": "-1.327\u00d710^-9"
+    },
+    {
+        "Properties": "52",
+        "Name": "Tellurium",
+        "Econf": "[Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>4</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-3.9\u00d710^-9",
+        "molarmag": "-4.98\u00d710^-10"
+    },
+    {
+        "Properties": "53",
+        "Name": "Iodine",
+        "Econf": "[Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>5</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-4.5\u00d710^-9",
+        "molarmag": "-1.14\u00d710^-9"
+    },
+    {
+        "Properties": "54",
+        "Name": "Xenon",
+        "Econf": "[Kr]4d<sup>10</sup>5s<sup>2</sup>5p<sup>6</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-4.3\u00d710^-9",
+        "molarmag": "-5.65\u00d710^-10"
+    },
+    {
+        "Properties": "55",
+        "Name": "Caesium",
+        "Econf": "[Xe]6s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "2.8\u00d710^-9",
+        "molarmag": "3.72\u00d710^-10"
+    },
+    {
+        "Properties": "56",
+        "Name": "Barium",
+        "Econf": "[Xe]6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.13\u00d710^-8",
+        "molarmag": "1.552\u00d710^-9"
+    },
+    {
+        "Properties": "57",
+        "Name": "Lanthanum",
+        "Econf": "[Xe]5d<sup>1</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.1\u00d710^-8",
+        "molarmag": "1.528\u00d710^-9"
+    },
+    {
+        "Properties": "58",
+        "Name": "Cerium",
+        "Econf": "[Xe]4f<sup>1</sup>5d<sup>1</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "2.2\u00d710^-7",
+        "molarmag": "3.0826\u00d710^-8"
+    },
+    {
+        "Properties": "59",
+        "Name": "Praseodymium",
+        "Econf": "[Xe]4f<sup>3</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "4.23\u00d710^-7",
+        "molarmag": "5.9604\u00d710^-8"
+    },
+    {
+        "Properties": "60",
+        "Name": "Neodymium",
+        "Econf": "[Xe]4f<sup>4</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "4.8\u00d710^-7",
+        "molarmag": "6.9235\u00d710^-8"
+    },
+    {
+        "Properties": "61",
+        "Name": "Promethium",
+        "Econf": "[Xe]4f<sup>5</sup>6s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "62",
+        "Name": "Samarium",
+        "Econf": "[Xe]4f<sup>6</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.11\u00d710^-7",
+        "molarmag": "1.669\u00d710^-8"
+    },
+    {
+        "Properties": "63",
+        "Name": "Europium",
+        "Econf": "[Xe]4f<sup>7</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "2.76\u00d710^-7",
+        "molarmag": "4.1942\u00d710^-8"
+    },
+    {
+        "Properties": "64",
+        "Name": "Gadolinium",
+        "Econf": "[Xe]4f<sup>7</sup>5d<sup>1</sup>6s<sup>2</sup>",
+        "Magt": "Ferromagnetic",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "65",
+        "Name": "Terbium",
+        "Econf": "[Xe]4f<sup>9</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "0.0000136",
+        "molarmag": "2.161385\u00d710^-6"
+    },
+    {
+        "Properties": "66",
+        "Name": "Dysprosium",
+        "Econf": "[Xe]4f<sup>10</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "5.45\u00d710^-6",
+        "molarmag": "8.85625\u00d710^-7"
+    },
+    {
+        "Properties": "67",
+        "Name": "Holmium",
+        "Econf": "[Xe]4f<sup>11</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "5.49\u00d710^-6",
+        "molarmag": "9.05467\u00d710^-7"
+    },
+    {
+        "Properties": "68",
+        "Name": "Erbium",
+        "Econf": "[Xe]4f<sup>12</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "3.77\u00d710^-6",
+        "molarmag": "6.30566\u00d710^-7"
+    },
+    {
+        "Properties": "69",
+        "Name": "Thulium",
+        "Econf": "[Xe]4f<sup>13</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.99\u00d710^-6",
+        "molarmag": "3.36179\u00d710^-7"
+    },
+    {
+        "Properties": "70",
+        "Name": "Ytterbium",
+        "Econf": "[Xe]4f<sup>14</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "5.9\u00d710^-9",
+        "molarmag": "1.02\u00d710^-9"
+    },
+    {
+        "Properties": "71",
+        "Name": "Lutetium",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>1</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.2\u00d710^-9",
+        "molarmag": "2.1\u00d710^-10"
+    },
+    {
+        "Properties": "72",
+        "Name": "Hafnium",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>2</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "5.3\u00d710^-9",
+        "molarmag": "9.46\u00d710^-10"
+    },
+    {
+        "Properties": "73",
+        "Name": "Tantalum",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>3</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.07\u00d710^-8",
+        "molarmag": "1.936\u00d710^-9"
+    },
+    {
+        "Properties": "74",
+        "Name": "Tungsten",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>4</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "4.59\u00d710^-9",
+        "molarmag": "8.44\u00d710^-10"
+    },
+    {
+        "Properties": "75",
+        "Name": "Rhenium",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>5</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "4.56\u00d710^-9",
+        "molarmag": "8.49\u00d710^-10"
+    },
+    {
+        "Properties": "76",
+        "Name": "Osmium",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>6</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "6\u00d710^-10",
+        "molarmag": "1.1\u00d710^-10"
+    },
+    {
+        "Properties": "77",
+        "Name": "Iridium",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>7</sup>6s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.67\u00d710^-9",
+        "molarmag": "3.21\u00d710^-10"
+    },
+    {
+        "Properties": "78",
+        "Name": "Platinum",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>9</sup>6s<sup>1</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "1.22\u00d710^-8",
+        "molarmag": "2.38\u00d710^-9"
+    },
+    {
+        "Properties": "79",
+        "Name": "Gold",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>1</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.78\u00d710^-9",
+        "molarmag": "-3.51\u00d710^-10"
+    },
+    {
+        "Properties": "80",
+        "Name": "Mercury",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-2.1\u00d710^-9",
+        "molarmag": "-4.21\u00d710^-10"
+    },
+    {
+        "Properties": "81",
+        "Name": "Thallium",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>1</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-3\u00d710^-9",
+        "molarmag": "-6.13\u00d710^-10"
+    },
+    {
+        "Properties": "82",
+        "Name": "Lead",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>2</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.5\u00d710^-9",
+        "molarmag": "-3.11\u00d710^-10"
+    },
+    {
+        "Properties": "83",
+        "Name": "Bismuth",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>3</sup>",
+        "Magt": "Diamagnetic",
+        "mags": "-1.7\u00d710^-8",
+        "molarmag": "-3.6\u00d710^-9"
+    },
+    {
+        "Properties": "84",
+        "Name": "Polonium",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>4</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "85",
+        "Name": "Astatine",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>5</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "86",
+        "Name": "Radon",
+        "Econf": "[Xe]4f<sup>14</sup>5d<sup>10</sup>6s<sup>2</sup>6p<sup>6</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "87",
+        "Name": "Francium",
+        "Econf": "[Rn]7s<sup>1</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "88",
+        "Name": "Radium",
+        "Econf": "[Rn]7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "89",
+        "Name": "Actinium",
+        "Econf": "[Rn]6d<sup>1</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "90",
+        "Name": "Thorium",
+        "Econf": "[Rn]6d<sup>2</sup>7s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "7.2\u00d710^-9",
+        "molarmag": "1.7\u00d710^-9"
+    },
+    {
+        "Properties": "91",
+        "Name": "Protactinium",
+        "Econf": "[Rn]5f<sup>2</sup>6d<sup>1</sup>7s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "3.25\u00d710^-8",
+        "molarmag": "7.509\u00d710^-9"
+    },
+    {
+        "Properties": "92",
+        "Name": "Uranium",
+        "Econf": "[Rn]5f<sup>3</sup>6d<sup>1</sup>7s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "2.16\u00d710^-8",
+        "molarmag": "5.14\u00d710^-9"
+    },
+    {
+        "Properties": "93",
+        "Name": "Neptunium",
+        "Econf": "[Rn]5f<sup>4</sup>6d<sup>1</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "94",
+        "Name": "Plutonium",
+        "Econf": "[Rn]5f<sup>6</sup>7s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "3.17\u00d710^-8",
+        "molarmag": "7.735\u00d710^-9"
+    },
+    {
+        "Properties": "95",
+        "Name": "Americium",
+        "Econf": "[Rn]5f<sup>7</sup>7s<sup>2</sup>",
+        "Magt": "Paramagnetic",
+        "mags": "5.15\u00d710^-8",
+        "molarmag": "1.251\u00d710^-8"
+    },
+    {
+        "Properties": "96",
+        "Name": "Curium",
+        "Econf": "[Rn]5f<sup>7</sup>6d<sup>1</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "97",
+        "Name": "Berkelium",
+        "Econf": "[Rn]5f<sup>9</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "98",
+        "Name": "Californium",
+        "Econf": "[Rn]5f<sup>10</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "99",
+        "Name": "Einsteinium",
+        "Econf": "[Rn]5f<sup>11</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "100",
+        "Name": "Fermium",
+        "Econf": "[Rn]5f<sup>12</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "101",
+        "Name": "Mendelevium",
+        "Econf": "[Rn]5f<sup>13</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "102",
+        "Name": "Nobelium",
+        "Econf": "[Rn]5f<sup>14</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "103",
+        "Name": "Lawrencium",
+        "Econf": "[Rn]5f<sup>14</sup>7s<sup>2</sup>7p<sup>1</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "104",
+        "Name": "Rutherfordium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>2</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "105",
+        "Name": "Dubnium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>3</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "106",
+        "Name": "Seaborgium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>4</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "107",
+        "Name": "Bohrium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>5</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "108",
+        "Name": "Hassium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>6</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "109",
+        "Name": "Meitnerium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>7</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "110",
+        "Name": "Darmstadtium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>9</sup>7s<sup>1</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "111",
+        "Name": "Roentgenium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>1</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "112",
+        "Name": "Copernicium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "113",
+        "Name": "Nihonium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>2</sup>7p<sup>1</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "114",
+        "Name": "Flerovium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>2</sup>7p<sup>2</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "115",
+        "Name": "Moscovium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>2</sup>7p<sup>3</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "116",
+        "Name": "Livermorium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>2</sup>7p<sup>4</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "117",
+        "Name": "Tennessine",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>2</sup>7p<sup>5</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Oganesson",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>2</sup>7p<sup>6</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Ununoctium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>2</sup>7p<sup>6</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Ununoctium",
+        "Econf": "[Rn]5f<sup>14</sup>6d<sup>10</sup>7s<sup>2</sup>7p<sup>6</sup>",
+        "Magt": "N/A",
+        "mags": "N/A",
+        "molarmag": "N/A"
+    }
+]

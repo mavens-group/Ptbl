@@ -1,0 +1,1202 @@
+[
+    {
+        "Properties": "1",
+        "Name": "Hydrogen",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "0.332",
+        "NMA": "0.011"
+    },
+    {
+        "Properties": "2",
+        "Name": "Helium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "0.007",
+        "NMA": "1\u00d710^-5"
+    },
+    {
+        "Properties": "3",
+        "Name": "Lithium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "0.045",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "4",
+        "Name": "Beryllium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "0.0092",
+        "NMA": "0.00003"
+    },
+    {
+        "Properties": "5",
+        "Name": "Boron",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>1/2</sub>",
+        "NCS": "755",
+        "NMA": "2.4"
+    },
+    {
+        "Properties": "6",
+        "Name": "Carbon",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>P<sub>0</sub>",
+        "NCS": "0.0035",
+        "NMA": "0.000015"
+    },
+    {
+        "Properties": "7",
+        "Name": "Nitrogen",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>S<sub>3/2</sub>",
+        "NCS": "1.91",
+        "NMA": "0.0048"
+    },
+    {
+        "Properties": "8",
+        "Name": "Oxygen",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>P<sub>2</sub>",
+        "NCS": "0.00028",
+        "NMA": "1\u00d710^-6"
+    },
+    {
+        "Properties": "9",
+        "Name": "Fluorine",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>3/2</sub>",
+        "NCS": "0.0096",
+        "NMA": "0.00002"
+    },
+    {
+        "Properties": "10",
+        "Name": "Neon",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "0.04",
+        "NMA": "0.0006"
+    },
+    {
+        "Properties": "11",
+        "Name": "Sodium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "0.53",
+        "NMA": "0.0007"
+    },
+    {
+        "Properties": "12",
+        "Name": "Magnesium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "0.063",
+        "NMA": "0.0001"
+    },
+    {
+        "Properties": "13",
+        "Name": "Aluminium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>1/2</sub>",
+        "NCS": "0.233",
+        "NMA": "0.03"
+    },
+    {
+        "Properties": "14",
+        "Name": "Silicon",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>P<sub>0</sub>",
+        "NCS": "171",
+        "NMA": "0.0002"
+    },
+    {
+        "Properties": "15",
+        "Name": "Phosphorus",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>S<sub>3/2</sub>",
+        "NCS": "0.18",
+        "NMA": "0.0002"
+    },
+    {
+        "Properties": "16",
+        "Name": "Sulfur",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>P<sub>2</sub>",
+        "NCS": "0.52",
+        "NMA": "0.00055"
+    },
+    {
+        "Properties": "17",
+        "Name": "Chlorine",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>3/2</sub>",
+        "NCS": "35.3",
+        "NMA": "0.033"
+    },
+    {
+        "Properties": "18",
+        "Name": "Argon",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "0.65",
+        "NMA": "0.0006"
+    },
+    {
+        "Properties": "19",
+        "Name": "Potassium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "2.1",
+        "NMA": "0.0018"
+    },
+    {
+        "Properties": "20",
+        "Name": "Calcium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "0.43",
+        "NMA": "0.00037"
+    },
+    {
+        "Properties": "21",
+        "Name": "Scandium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>D<sub>3/2</sub>",
+        "NCS": "27.2",
+        "NMA": "0.025"
+    },
+    {
+        "Properties": "22",
+        "Name": "Titanium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>F<sub>2</sub>",
+        "NCS": "6.1",
+        "NMA": "0.0044"
+    },
+    {
+        "Properties": "23",
+        "Name": "Vanadium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>F<sub>3/2</sub>",
+        "NCS": "5.06",
+        "NMA": "0.0033"
+    },
+    {
+        "Properties": "24",
+        "Name": "Chromium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>7</sup>S<sub>3</sub>",
+        "NCS": "3.1",
+        "NMA": "0.0021"
+    },
+    {
+        "Properties": "25",
+        "Name": "Manganese",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>6</sup>S<sub>5/2</sub>",
+        "NCS": "13.3",
+        "NMA": "0.0083"
+    },
+    {
+        "Properties": "26",
+        "Name": "Iron",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>5</sup>D<sub>4</sub>",
+        "NCS": "2.56",
+        "NMA": "0.0015"
+    },
+    {
+        "Properties": "27",
+        "Name": "Cobalt",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>F<sub>9/2</sub>",
+        "NCS": "37.2",
+        "NMA": "0.021"
+    },
+    {
+        "Properties": "28",
+        "Name": "Nickel",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>F<sub>4</sub>",
+        "NCS": "37.2",
+        "NMA": "0.0026"
+    },
+    {
+        "Properties": "29",
+        "Name": "Copper",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "3.78",
+        "NMA": "0.0021"
+    },
+    {
+        "Properties": "30",
+        "Name": "Zinc",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "1.1",
+        "NMA": "0.00055"
+    },
+    {
+        "Properties": "31",
+        "Name": "Gallium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>1/2</sub>",
+        "NCS": "2.9",
+        "NMA": "0.0015"
+    },
+    {
+        "Properties": "32",
+        "Name": "Germanium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>P<sub>0</sub>",
+        "NCS": "2.2",
+        "NMA": "0.0011"
+    },
+    {
+        "Properties": "33",
+        "Name": "Arsenic",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>S<sub>3/2</sub>",
+        "NCS": "4.3",
+        "NMA": "0.002"
+    },
+    {
+        "Properties": "34",
+        "Name": "Selenium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>P<sub>2</sub>",
+        "NCS": "11.7",
+        "NMA": "0.0056"
+    },
+    {
+        "Properties": "35",
+        "Name": "Bromine",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>3/2</sub>",
+        "NCS": "6.8",
+        "NMA": "0.002"
+    },
+    {
+        "Properties": "36",
+        "Name": "Krypton",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "25",
+        "NMA": "0.013"
+    },
+    {
+        "Properties": "37",
+        "Name": "Rubidium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "0.38",
+        "NMA": "0.0003"
+    },
+    {
+        "Properties": "38",
+        "Name": "Strontium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "1.2",
+        "NMA": "0.0005"
+    },
+    {
+        "Properties": "39",
+        "Name": "Yttrium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>D<sub>3/2</sub>",
+        "NCS": "1.28",
+        "NMA": "0.0006"
+    },
+    {
+        "Properties": "40",
+        "Name": "Zirconium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>F<sub>2</sub>",
+        "NCS": "0.184",
+        "NMA": "0.00066"
+    },
+    {
+        "Properties": "41",
+        "Name": "Niobium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>6</sup>D<sub>1/2</sub>",
+        "NCS": "1.15",
+        "NMA": "0.0004"
+    },
+    {
+        "Properties": "42",
+        "Name": "Molybdenum",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>7</sup>S<sub>3</sub>",
+        "NCS": "2.6",
+        "NMA": "0.0009"
+    },
+    {
+        "Properties": "43",
+        "Name": "Technetium",
+        "Halfl": "4.12\u00d710^6 y",
+        "Life": "6.02\u00d710^6 y",
+        "Decay": "BetaDecay",
+        "Qnum": "<sup>6</sup>S<sub>5/2</sub>",
+        "NCS": "22",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "44",
+        "Name": "Ruthenium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>5</sup>F<sub>5</sub>",
+        "NCS": "2.6",
+        "NMA": "0.0009"
+    },
+    {
+        "Properties": "45",
+        "Name": "Rhodium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>F<sub>9/2</sub>",
+        "NCS": "145",
+        "NMA": "0.063"
+    },
+    {
+        "Properties": "46",
+        "Name": "Palladium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "6.9",
+        "NMA": "0.0023"
+    },
+    {
+        "Properties": "47",
+        "Name": "Silver",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "63.6",
+        "NMA": "0.02"
+    },
+    {
+        "Properties": "48",
+        "Name": "Cadmium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "2450",
+        "NMA": "1.4"
+    },
+    {
+        "Properties": "49",
+        "Name": "Indium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>1/2</sub>",
+        "NCS": "194",
+        "NMA": "0.06"
+    },
+    {
+        "Properties": "50",
+        "Name": "Tin",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>P<sub>0</sub>",
+        "NCS": "0.63",
+        "NMA": "0.0002"
+    },
+    {
+        "Properties": "51",
+        "Name": "Antimony",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>S<sub>3/2</sub>",
+        "NCS": "5.4",
+        "NMA": "0.0016"
+    },
+    {
+        "Properties": "52",
+        "Name": "Tellurium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>P<sub>2</sub>",
+        "NCS": "5.4",
+        "NMA": "0.0013"
+    },
+    {
+        "Properties": "53",
+        "Name": "Iodine",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>3/2</sub>",
+        "NCS": "6.2",
+        "NMA": "0.0018"
+    },
+    {
+        "Properties": "54",
+        "Name": "Xenon",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "25",
+        "NMA": "0.0083"
+    },
+    {
+        "Properties": "55",
+        "Name": "Caesium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "29",
+        "NMA": "0.0077"
+    },
+    {
+        "Properties": "56",
+        "Name": "Barium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "1.3",
+        "NMA": "0.00027"
+    },
+    {
+        "Properties": "57",
+        "Name": "Lanthanum",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>D<sub>3/2</sub>",
+        "NCS": "8.98",
+        "NMA": "0.0023"
+    },
+    {
+        "Properties": "58",
+        "Name": "Cerium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>G<sub>4</sub>",
+        "NCS": "0.6",
+        "NMA": "0.00021"
+    },
+    {
+        "Properties": "59",
+        "Name": "Praseodymium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>I<sub>9/2</sub>",
+        "NCS": "11.4",
+        "NMA": "0.0029"
+    },
+    {
+        "Properties": "60",
+        "Name": "Neodymium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>5</sup>I<sub>4</sub>",
+        "NCS": "49",
+        "NMA": "0.011"
+    },
+    {
+        "Properties": "61",
+        "Name": "Promethium",
+        "Halfl": "17.73 y",
+        "Life": "25.56 y",
+        "Decay": "ElectronCapture",
+        "Qnum": "<sup>6</sup>H<sub>5/2</sub>",
+        "NCS": "8\u00d710^3",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "62",
+        "Name": "Samarium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>7</sup>F<sub>0</sub>",
+        "NCS": "5.9\u00d710^3",
+        "NMA": "4.7"
+    },
+    {
+        "Properties": "63",
+        "Name": "Europium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>8</sup>S<sub>7/2</sub>",
+        "NCS": "4450",
+        "NMA": "0.6"
+    },
+    {
+        "Properties": "64",
+        "Name": "Gadolinium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>9</sup>D<sub>2</sub>",
+        "NCS": "4.9\u00d710^4",
+        "NMA": "7.3"
+    },
+    {
+        "Properties": "65",
+        "Name": "Terbium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>6</sup>H<sub>15/2</sub>",
+        "NCS": "23",
+        "NMA": "0.009"
+    },
+    {
+        "Properties": "66",
+        "Name": "Dysprosium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>5</sup>I<sub>8</sub>",
+        "NCS": "1010",
+        "NMA": "0.2"
+    },
+    {
+        "Properties": "67",
+        "Name": "Holmium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>I<sub>15/2</sub>",
+        "NCS": "65",
+        "NMA": "0.015"
+    },
+    {
+        "Properties": "68",
+        "Name": "Erbium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>H<sub>6</sub>",
+        "NCS": "165",
+        "NMA": "0.036"
+    },
+    {
+        "Properties": "69",
+        "Name": "Thulium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>F<sub>7/2</sub>",
+        "NCS": "105",
+        "NMA": "0.025"
+    },
+    {
+        "Properties": "70",
+        "Name": "Ytterbium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "35",
+        "NMA": "0.0076"
+    },
+    {
+        "Properties": "71",
+        "Name": "Lutetium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>D<sub>3/2</sub>",
+        "NCS": "84",
+        "NMA": "0.022"
+    },
+    {
+        "Properties": "72",
+        "Name": "Hafnium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>F<sub>2</sub>",
+        "NCS": "104",
+        "NMA": "0.02"
+    },
+    {
+        "Properties": "73",
+        "Name": "Tantalum",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>F<sub>3/2</sub>",
+        "NCS": "20.5",
+        "NMA": "0.0041"
+    },
+    {
+        "Properties": "74",
+        "Name": "Tungsten",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>5</sup>D<sub>0</sub>",
+        "NCS": "18.4",
+        "NMA": "0.0036"
+    },
+    {
+        "Properties": "75",
+        "Name": "Rhenium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>6</sup>S<sub>5/2</sub>",
+        "NCS": "90",
+        "NMA": "0.016"
+    },
+    {
+        "Properties": "76",
+        "Name": "Osmium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>5</sup>D<sub>4</sub>",
+        "NCS": "15",
+        "NMA": "0.0023"
+    },
+    {
+        "Properties": "77",
+        "Name": "Iridium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>4</sup>F<sub>9/2</sub>",
+        "NCS": "425",
+        "NMA": "0.08"
+    },
+    {
+        "Properties": "78",
+        "Name": "Platinum",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>D<sub>3</sub>",
+        "NCS": "10",
+        "NMA": "0.002"
+    },
+    {
+        "Properties": "79",
+        "Name": "Gold",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "98.7",
+        "NMA": "0.017"
+    },
+    {
+        "Properties": "80",
+        "Name": "Mercury",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "374",
+        "NMA": "0.063"
+    },
+    {
+        "Properties": "81",
+        "Name": "Thallium",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>1/2</sub>",
+        "NCS": "3.4",
+        "NMA": "0.0006"
+    },
+    {
+        "Properties": "82",
+        "Name": "Lead",
+        "Halfl": "Stable",
+        "Life": "Stable",
+        "Decay": "N/A",
+        "Qnum": "<sup>3</sup>P<sub>0</sub>",
+        "NCS": "0.171",
+        "NMA": "0.00003"
+    },
+    {
+        "Properties": "83",
+        "Name": "Bismuth",
+        "Halfl": "1.9\u00d710^19 y",
+        "Life": "2.76\u00d710^19 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>4</sup>S<sub>3/2</sub>",
+        "NCS": "0.034",
+        "NMA": "6\u00d710^-6"
+    },
+    {
+        "Properties": "84",
+        "Name": "Polonium",
+        "Halfl": "102.1 y",
+        "Life": "147.1 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>3</sup>P<sub>2</sub>",
+        "NCS": "0.5",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "85",
+        "Name": "Astatine",
+        "Halfl": "8.06 h",
+        "Life": "11.7 h",
+        "Decay": "BetaPlusDecay",
+        "Qnum": "<sup>2</sup>P<sub>3/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "86",
+        "Name": "Radon",
+        "Halfl": "3.823495 d",
+        "Life": "5.516088 d",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "0.7",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "87",
+        "Name": "Francium",
+        "Halfl": "21.7 m",
+        "Life": "31.7 m",
+        "Decay": "BetaDecay",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "88",
+        "Name": "Radium",
+        "Halfl": "1.59\u00d710^3 y",
+        "Life": "2.31\u00d710^3 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "20",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "89",
+        "Name": "Actinium",
+        "Halfl": "21.7865 y",
+        "Life": "31.4311 y",
+        "Decay": "BetaDecay",
+        "Qnum": "<sup>2</sup>D<sub>3/2</sub>",
+        "NCS": "810",
+        "NMA": "0.079"
+    },
+    {
+        "Properties": "90",
+        "Name": "Thorium",
+        "Halfl": "1.406\u00d710^10 y",
+        "Life": "2.0285\u00d710^10 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>3</sup>F<sub>2</sub>",
+        "NCS": "7.4",
+        "NMA": "0.001"
+    },
+    {
+        "Properties": "91",
+        "Name": "Protactinium",
+        "Halfl": "32788 y",
+        "Life": "47279 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>4</sup>K<sub>11/2</sub>",
+        "NCS": "500",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "92",
+        "Name": "Uranium",
+        "Halfl": "4.471\u00d710^9 y",
+        "Life": "6.4498\u00d710^9 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>5</sup>L<sub>6</sub>",
+        "NCS": "7.57",
+        "NMA": "0.0005"
+    },
+    {
+        "Properties": "93",
+        "Name": "Neptunium",
+        "Halfl": "2.1455\u00d710^6 y",
+        "Life": "3.0952\u00d710^6 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>6</sup>L<sub>11/2</sub>",
+        "NCS": "180",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "94",
+        "Name": "Plutonium",
+        "Halfl": "7.93\u00d710^7 y",
+        "Life": "1.14\u00d710^8 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>7</sup>F<sub>0</sub>",
+        "NCS": "1.7",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "95",
+        "Name": "Americium",
+        "Halfl": "7388 y",
+        "Life": "1.065\u00d710^4 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>8</sup>S<sub>7/2</sub>",
+        "NCS": "74",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "96",
+        "Name": "Curium",
+        "Halfl": "1.56\u00d710^7 y",
+        "Life": "2.25\u00d710^7 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>9</sup>D<sub>2</sub>",
+        "NCS": "60",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "97",
+        "Name": "Berkelium",
+        "Halfl": "1379 y",
+        "Life": "1991 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>6</sup>H<sub>15/2</sub>",
+        "NCS": "710",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "98",
+        "Name": "Californium",
+        "Halfl": "900.6 y",
+        "Life": "1.3\u00d710^3 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>5</sup>I<sub>8</sub>",
+        "NCS": "2.9\u00d710^3",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "99",
+        "Name": "Einsteinium",
+        "Halfl": "1.2922 y",
+        "Life": "1.865 y",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>5</sup>I<sub>15/2</sub>",
+        "NCS": "160",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "100",
+        "Name": "Fermium",
+        "Halfl": "100.5 d",
+        "Life": "145.02 d",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>3</sup>H<sub>6</sub>",
+        "NCS": "5.8\u00d710^3",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "101",
+        "Name": "Mendelevium",
+        "Halfl": "51.5 d",
+        "Life": "74.31 d",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>2</sup>F<sub>7/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "102",
+        "Name": "Nobelium",
+        "Halfl": "2.78 h",
+        "Life": "5.56 h",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "103",
+        "Name": "Lawrencium",
+        "Halfl": "10 h",
+        "Life": "14.4 h",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>2</sup>P<sub>1/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "104",
+        "Name": "Rutherfordium",
+        "Halfl": "13.1 h",
+        "Life": "18.9 h",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>3</sup>F<sub>2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "105",
+        "Name": "Dubnium",
+        "Halfl": "5.56 h",
+        "Life": "8.33 h",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>4</sup>F<sub>3/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "106",
+        "Name": "Seaborgium",
+        "Halfl": "1.94 h",
+        "Life": "2.78 h",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>5</sup>D<sub>0</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "107",
+        "Name": "Bohrium",
+        "Halfl": "1.5 h",
+        "Life": "2.17 h",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>6</sup>S<sub>5/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "108",
+        "Name": "Hassium",
+        "Halfl": "1.11 h",
+        "Life": "1.39 h",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>5</sup>D<sub>4</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "109",
+        "Name": "Meitnerium",
+        "Halfl": "30 m",
+        "Life": "43.3 m",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>4</sup>F<sub>9/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "110",
+        "Name": "Darmstadtium",
+        "Halfl": "4 m",
+        "Life": "5.833 m",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>3</sup>D<sub>3</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "111",
+        "Name": "Roentgenium",
+        "Halfl": "10 m",
+        "Life": "14.5 m",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>2</sup>S<sub>1/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "112",
+        "Name": "Copernicium",
+        "Halfl": "40 m",
+        "Life": "58.3 m",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "113",
+        "Name": "Nihonium",
+        "Halfl": "20 m",
+        "Life": "28.3 m",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>2</sup>P<sub>1/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "114",
+        "Name": "Flerovium",
+        "Halfl": "1.33 m",
+        "Life": "2 m",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>3</sup>P<sub>0</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "115",
+        "Name": "Moscovium",
+        "Halfl": "1 m",
+        "Life": "1.5 m",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>4</sup>S<sub>3/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "116",
+        "Name": "Livermorium",
+        "Halfl": "120 ms",
+        "Life": "173 ms",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>3</sup>P<sub>2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "117",
+        "Name": "Tennessine",
+        "Halfl": "50 ms",
+        "Life": "72 ms",
+        "Decay": "N/A",
+        "Qnum": "<sup>2</sup>P<sub>3/2</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Oganesson",
+        "Halfl": "5 ms",
+        "Life": "7 ms",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Ununoctium",
+        "Halfl": "5 ms",
+        "Life": "7 ms",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    },
+    {
+        "Properties": "118",
+        "Name": "Ununoctium",
+        "Halfl": "5 ms",
+        "Life": "7 ms",
+        "Decay": "AlphaEmission",
+        "Qnum": "<sup>1</sup>S<sub>0</sub>",
+        "NCS": "N/A",
+        "NMA": "N/A"
+    }
+]
