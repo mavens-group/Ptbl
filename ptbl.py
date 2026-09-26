@@ -347,71 +347,83 @@ button.element-card.dimmed {
 }
 
 /* Category Base Fills */
-.hero-card.alkali, button.element-card.alkali { background: #F0876A; background-image: none; color: #1b1b1f; }
+.hero-card.alkali, button.element-card.alkali, .hero-tile.alkali { background: #F0876A; background-image: none; color: #1b1b1f; }
 button.element-card.alkali:hover { background: #F5A88F; }
-.hero-card.alkaline, button.element-card.alkaline { background: #F2B84B; background-image: none; color: #1b1b1f; }
+.hero-card.alkaline, button.element-card.alkaline, .hero-tile.alkaline { background: #F2B84B; background-image: none; color: #1b1b1f; }
 button.element-card.alkaline:hover { background: #F7CB76; }
-.hero-card.transition, button.element-card.transition { background: #6FCB8A; background-image: none; color: #1b1b1f; }
+.hero-card.transition, button.element-card.transition, .hero-tile.transition { background: #6FCB8A; background-image: none; color: #1b1b1f; }
 button.element-card.transition:hover { background: #93DAA8; }
-.hero-card.post, button.element-card.post { background: #5BB0EA; background-image: none; color: #1b1b1f; }
+.hero-card.post, button.element-card.post, .hero-tile.post { background: #5BB0EA; background-image: none; color: #1b1b1f; }
 button.element-card.post:hover { background: #82C4F0; }
-.hero-card.metalloid, button.element-card.metalloid { background: #4FCFC0; background-image: none; color: #1b1b1f; }
+.hero-card.metalloid, button.element-card.metalloid, .hero-tile.metalloid { background: #4FCFC0; background-image: none; color: #1b1b1f; }
 button.element-card.metalloid:hover { background: #7CDCD0; }
-.hero-card.nonmetal, button.element-card.nonmetal { background: #B49AF0; background-image: none; color: #1b1b1f; }
+.hero-card.nonmetal, button.element-card.nonmetal, .hero-tile.nonmetal { background: #B49AF0; background-image: none; color: #1b1b1f; }
 button.element-card.nonmetal:hover { background: #C8B5F5; }
-.hero-card.halogen, button.element-card.halogen { background: #EE7FB6; background-image: none; color: #1b1b1f; }
+.hero-card.halogen, button.element-card.halogen, .hero-tile.halogen { background: #EE7FB6; background-image: none; color: #1b1b1f; }
 button.element-card.halogen:hover { background: #F4A3CB; }
-.hero-card.noble, button.element-card.noble { background: #7F9BF0; background-image: none; color: #1b1b1f; }
+.hero-card.noble, button.element-card.noble, .hero-tile.noble { background: #7F9BF0; background-image: none; color: #1b1b1f; }
 button.element-card.noble:hover { background: #A0B6F5; }
-.hero-card.lanthanide, button.element-card.lanthanide { background: #E8996A; background-image: none; color: #1b1b1f; }
+.hero-card.lanthanide, button.element-card.lanthanide, .hero-tile.lanthanide { background: #E8996A; background-image: none; color: #1b1b1f; }
 button.element-card.lanthanide:hover { background: #EFB392; }
-.hero-card.actinide, button.element-card.actinide { background: #E5737F; background-image: none; color: #1b1b1f; }
+.hero-card.actinide, button.element-card.actinide, .hero-tile.actinide { background: #E5737F; background-image: none; color: #1b1b1f; }
 button.element-card.actinide:hover { background: #EC959E; }
 
-/* Centerpiece Hub Styling */
-.centerpiece-hub {
-  padding: 2px;
-}
-
-.preview-card, .control-card {
-  background: alpha(@card_bg_color, 0.80);
+/* Unified Centerpiece Card Styling */
+.centerpiece-card {
+  background: alpha(@card_bg_color, 0.85);
   border: 1px solid alpha(currentColor, 0.08);
   border-radius: 12px;
-  padding: 8px 12px;
-  box-shadow: 0 1px 3px alpha(#000, 0.06);
+  padding: 6px 12px;
+  box-shadow: 0 1px 4px alpha(#000, 0.06);
 }
 
-.preview-sym {
-  font-size: 26pt;
-  font-weight: 850;
-  min-width: 52px;
-  letter-spacing: -1px;
+.hero-tile {
+  min-width: 48px;
+  min-height: 52px;
+  border-radius: 8px;
+  padding: 3px 5px;
+  border: 1px solid alpha(#000, 0.08);
+  box-shadow: 0 2px 5px alpha(#000, 0.12);
+  color: #1b1b1f;
 }
 
-.preview-name {
-  font-size: 13pt;
-  font-weight: 750;
-}
-
-.preview-sub {
+.hero-tile-num {
   font-size: 8pt;
-  opacity: 0.72;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.hero-tile-sym {
+  font-size: 20pt;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+}
+
+.hero-name-label {
+  font-size: 13.5pt;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.hero-sub-label {
+  font-size: 8.5pt;
+  opacity: 0.75;
   font-feature-settings: 'tnum';
 }
 
-.preview-badge {
-  font-size: 7.5pt;
+.hero-badge {
+  font-size: 8pt;
   font-weight: 600;
   border-radius: 9999px;
   padding: 2px 7px;
   border: 1px solid alpha(currentColor, 0.10);
-  background: alpha(currentColor, 0.05);
+  background: alpha(currentColor, 0.06);
 }
 
 .legend-pill {
   border-radius: 9999px;
-  padding: 2px 6px;
-  font-size: 7pt;
+  padding: 2px 8px;
+  font-size: 7.5pt;
   font-weight: 600;
   border: 1px solid alpha(currentColor, 0.08);
   transition: all 150ms ease-out;
@@ -533,8 +545,8 @@ class MainWindow(Adw.ApplicationWindow):
   def __init__(self, app):
     super().__init__(application=app,
                      title="Periodic Table",
-                     default_width=980,
-                     default_height=650)
+                     default_width=1100,
+                     default_height=680)
 
     self.app = app
     self.active_category_filter = None
@@ -654,59 +666,85 @@ class MainWindow(Adw.ApplicationWindow):
 
   def setup_centerpiece(self):
     self.centerpiece = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,
-                               spacing=6,
+                               spacing=12,
                                hexpand=True,
                                vexpand=True)
-    self.centerpiece.add_css_class("centerpiece-hub")
+    self.centerpiece.add_css_class("centerpiece-card")
 
-    # Left: Live Preview Hero Card
-    self.preview_card = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,
-                                spacing=8,
-                                hexpand=True,
-                                valign=Gtk.Align.FILL)
-    self.preview_card.add_css_class("preview-card")
+    # Left Section: Live Element Hero Preview
+    self.hero_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,
+                            spacing=10,
+                            valign=Gtk.Align.CENTER)
 
-    self.prev_sym = Gtk.Label(label="H", halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER)
-    self.prev_sym.add_css_class("preview-sym")
-    self.preview_card.append(self.prev_sym)
+    self.hero_tile = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
+    self.hero_tile.add_css_class("hero-tile")
+    self.hero_tile.add_css_class("nonmetal")
 
-    prev_info = Gtk.Box(orientation=Gtk.Orientation.VERTICAL,
-                        spacing=2,
-                        valign=Gtk.Align.CENTER,
-                        hexpand=True)
+    self.prev_num = Gtk.Label(label="1", xalign=0)
+    self.prev_num.add_css_class("hero-tile-num")
+    self.prev_num.set_width_chars(3)
+    self.prev_num.set_max_width_chars(3)
+    self.hero_tile.append(self.prev_num)
+
+    self.prev_sym = Gtk.Label(label="H", halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER, vexpand=True)
+    self.prev_sym.add_css_class("hero-tile-sym")
+    self.prev_sym.set_width_chars(2)
+    self.prev_sym.set_max_width_chars(2)
+    self.hero_tile.append(self.prev_sym)
+    self.hero_box.append(self.hero_tile)
+
+    info_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL,
+                       spacing=2,
+                       valign=Gtk.Align.CENTER)
     self.prev_name = Gtk.Label(label="Hydrogen", xalign=0)
-    self.prev_name.add_css_class("preview-name")
-    prev_info.append(self.prev_name)
+    self.prev_name.add_css_class("hero-name-label")
+    self.prev_name.set_ellipsize(Pango.EllipsizeMode.END)
+    self.prev_name.set_width_chars(13)
+    self.prev_name.set_max_width_chars(13)
+    info_box.append(self.prev_name)
 
     self.prev_sub = Gtk.Label(label="Atomic #1  •  1.0080 u", xalign=0)
-    self.prev_sub.add_css_class("preview-sub")
-    prev_info.append(self.prev_sub)
+    self.prev_sub.add_css_class("hero-sub-label")
+    self.prev_sub.set_ellipsize(Pango.EllipsizeMode.END)
+    self.prev_sub.set_width_chars(21)
+    self.prev_sub.set_max_width_chars(21)
+    info_box.append(self.prev_sub)
 
-    prev_badges = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4, margin_top=2)
+    badge_row1 = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4, margin_top=2)
     self.prev_cat_badge = Gtk.Label(label="Nonmetal")
-    self.prev_cat_badge.add_css_class("preview-badge")
-    prev_badges.append(self.prev_cat_badge)
+    self.prev_cat_badge.add_css_class("hero-badge")
+    self.prev_cat_badge.set_width_chars(11)
+    self.prev_cat_badge.set_max_width_chars(11)
+    self.prev_cat_badge.set_ellipsize(Pango.EllipsizeMode.END)
+    badge_row1.append(self.prev_cat_badge)
 
     self.prev_phase_badge = Gtk.Label(label="Gas")
-    self.prev_phase_badge.add_css_class("preview-badge")
-    prev_badges.append(self.prev_phase_badge)
+    self.prev_phase_badge.add_css_class("hero-badge")
+    self.prev_phase_badge.set_width_chars(6)
+    self.prev_phase_badge.set_max_width_chars(6)
+    self.prev_phase_badge.set_ellipsize(Pango.EllipsizeMode.END)
+    badge_row1.append(self.prev_phase_badge)
+    info_box.append(badge_row1)
 
-    self.prev_extra_badge = Gtk.Label(label="1s¹")
-    self.prev_extra_badge.add_css_class("preview-badge")
-    prev_badges.append(self.prev_extra_badge)
+    self.prev_extra_badge = Gtk.Label(label="1s¹", xalign=0)
+    self.prev_extra_badge.add_css_class("hero-badge")
+    self.prev_extra_badge.set_width_chars(18)
+    self.prev_extra_badge.set_max_width_chars(18)
+    self.prev_extra_badge.set_ellipsize(Pango.EllipsizeMode.END)
+    info_box.append(self.prev_extra_badge)
 
-    prev_info.append(prev_badges)
-    self.preview_card.append(prev_info)
-    self.centerpiece.append(self.preview_card)
+    self.hero_box.append(info_box)
+    self.centerpiece.append(self.hero_box)
 
-    # Right: Control & Legend Hub
-    self.control_card = Gtk.Box(orientation=Gtk.Orientation.VERTICAL,
-                                spacing=4,
-                                hexpand=True,
-                                valign=Gtk.Align.FILL)
-    self.control_card.add_css_class("control-card")
+    # Vertical Separator
+    sep = Gtk.Separator(orientation=Gtk.Orientation.VERTICAL)
+    self.centerpiece.append(sep)
 
-    # Mode Switcher Bar
+    # Right Section: Mode & Legend Controls
+    self.control_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL,
+                               spacing=4,
+                               valign=Gtk.Align.CENTER)
+
     mode_bar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6, halign=Gtk.Align.CENTER)
     self.btn_mode_cat = Gtk.Button(label="Categories")
     self.btn_mode_cat.add_css_class("pill")
@@ -719,14 +757,13 @@ class MainWindow(Adw.ApplicationWindow):
     self.btn_mode_heat.add_css_class("flat")
     self.btn_mode_heat.connect("clicked", lambda *_: self.switch_mode("heatmap"))
     mode_bar.append(self.btn_mode_heat)
-    self.control_card.append(mode_bar)
+    self.control_box.append(mode_bar)
 
-    # Stack for Category Legend vs Heatmap Legend
-    self.control_stack = Gtk.Stack(vexpand=True, transition_type=Gtk.StackTransitionType.CROSSFADE)
-    self.control_card.append(self.control_stack)
+    self.control_stack = Gtk.Stack(transition_type=Gtk.StackTransitionType.CROSSFADE)
+    self.control_box.append(self.control_stack)
 
-    # Page 1: Category Filter & Legend
-    cat_page = Gtk.Grid(column_spacing=3, row_spacing=2, halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER)
+    # Page 1: Category Filter & Legend (3-column layout)
+    cat_page = Gtk.Grid(column_spacing=4, row_spacing=2, halign=Gtk.Align.CENTER, valign=Gtk.Align.CENTER)
     self.category_pills = {}
     for idx, (cat_id, cat_title) in enumerate(CATEGORY_NAMES.items()):
       pill = Gtk.Button(label=CATEGORY_SHORT[cat_id])
@@ -734,7 +771,8 @@ class MainWindow(Adw.ApplicationWindow):
       pill.add_css_class("flat")
       pill.set_tooltip_text(f"Filter {cat_title}")
       pill.connect("clicked", self.on_category_pill_clicked, cat_id)
-      cat_page.attach(pill, idx % 5, idx // 5, 1, 1)
+      # 3 columns layout: col = idx % 3, row = idx // 3
+      cat_page.attach(pill, idx % 3, idx // 3, 1, 1)
       self.category_pills[cat_id] = pill
 
     self.control_stack.add_named(cat_page, "categories")
@@ -743,7 +781,7 @@ class MainWindow(Adw.ApplicationWindow):
     heat_page = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4, valign=Gtk.Align.CENTER)
     prop_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6, halign=Gtk.Align.CENTER)
     prop_lbl = Gtk.Label(label="Property:")
-    prop_lbl.add_css_class("preview-sub")
+    prop_lbl.add_css_class("hero-sub-label")
     prop_row.append(prop_lbl)
 
     prop_model = Gtk.StringList.new(list(HEATMAP_PROPERTIES.keys()))
@@ -753,12 +791,12 @@ class MainWindow(Adw.ApplicationWindow):
     heat_page.append(prop_row)
 
     self.gradient_bar = Gtk.DrawingArea(hexpand=True)
-    self.gradient_bar.set_size_request(-1, 24)
+    self.gradient_bar.set_size_request(-1, 22)
     self.gradient_bar.set_draw_func(self.draw_gradient_legend)
     heat_page.append(self.gradient_bar)
 
     self.control_stack.add_named(heat_page, "heatmap")
-    self.centerpiece.append(self.control_card)
+    self.centerpiece.append(self.control_box)
 
   def switch_mode(self, mode):
     self.active_mode = mode
@@ -898,7 +936,9 @@ class MainWindow(Adw.ApplicationWindow):
     phase = thermal.get("Phase", "Solid")
     econf = electronic.get("Econf", "—")
 
+    self.hero_tile.set_css_classes(["hero-tile", category])
     self.prev_sym.set_label(symbol)
+    self.prev_num.set_label(str(number))
     self.prev_name.set_label(name)
     self.prev_sub.set_label(f"Atomic #{number}  •  {weight} u")
     self.prev_cat_badge.set_label(CATEGORY_SHORT[category])
