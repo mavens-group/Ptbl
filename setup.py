@@ -11,6 +11,7 @@ setup(
     description="A GTK4 periodic table",
     long_description=(ROOT / "README.md").read_text(),
     long_description_content_type="text/markdown",
+    license="GPL-3.0-or-later",
     python_requires=">=3.10",
     py_modules=["ptbl"],
     entry_points={"console_scripts": ["ptbl=ptbl:main"]},
@@ -27,7 +28,6 @@ setup(
     ],
     classifiers=[
         "Environment :: X11 Applications :: GTK",
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3",
         "Topic :: Education :: Chemistry",
     ],
