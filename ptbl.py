@@ -497,18 +497,30 @@ button.element-card.actinide:hover, button.legend-pill.actinide:hover { backgrou
   margin-bottom: 8px;
 }
 .hero-symbol {
-  font-size: 32pt;
+  font-size: 34pt;
   font-weight: 850;
   letter-spacing: -1px;
 }
 .hero-title {
-  font-size: 16pt;
-  font-weight: 700;
+  font-size: 20pt;
+  font-weight: 800;
 }
 .hero-number {
   font-size: 11pt;
-  font-weight: 600;
-  opacity: 0.72;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.prop-row-key {
+  font-size: 11pt;
+  font-weight: 500;
+  opacity: 0.78;
+}
+
+.prop-row-val {
+  font-size: 11.5pt;
+  font-weight: 700;
+  font-feature-settings: 'tnum';
 }
 
 .property-value {
@@ -1262,8 +1274,8 @@ class ElementWindow(Adw.Window):
 
     super().__init__(application=app,
                      title=f"{name} ({symbol})",
-                     default_width=640,
-                     default_height=600,
+                     default_width=580,
+                     default_height=560,
                      transient_for=parent)
 
     toolbar_view = Adw.ToolbarView()
@@ -1276,11 +1288,11 @@ class ElementWindow(Adw.Window):
     toolbar_view.add_top_bar(header)
 
     main_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL,
-                       spacing=12,
-                       margin_top=14,
-                       margin_bottom=14,
-                       margin_start=16,
-                       margin_end=16)
+                       spacing=10,
+                       margin_top=12,
+                       margin_bottom=12,
+                       margin_start=14,
+                       margin_end=14)
 
     # Hero card with M3 tonal container styling
     hero = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,
@@ -1326,7 +1338,7 @@ class ElementWindow(Adw.Window):
         "Crystal": "system-run-symbolic",
         "Electronic": "network-wired-symbolic",
         "Electrical": "battery-symbolic",
-        "Nuclear": "emblem-synchronizing-symbolic",
+        "Nuclear": "dialog-warning-symbolic",
     }
 
     for table, labels in TABS.items():
@@ -1334,35 +1346,62 @@ class ElementWindow(Adw.Window):
       values = list(row_data.values())[2:]
       page = self.build_properties_page(labels, values)
       icon = icons.get(table, "document-properties-symbolic")
-      stack.add_titled_with_icon(page, table, table, icon)
+      title = "Nuclear ☢" if table == "Nuclear" else table
+      stack.add_titled_with_icon(page, table, title, icon)
 
     toolbar_view.set_content(main_box)
 
   @staticmethod
   def build_properties_page(labels, values):
-    page = Adw.PreferencesPage()
-    group = Adw.PreferencesGroup()
-    page.add(group)
+    scroller = Gtk.ScrolledWindow(vexpand=True,
+                                  hexpand=True,
+                                  hscrollbar_policy=Gtk.PolicyType.NEVER,
+                                  vscrollbar_policy=Gtk.PolicyType.AUTOMATIC)
+
+    list_box = Gtk.ListBox()
+    list_box.add_css_class("boxed-list")
+    list_box.set_selection_mode(Gtk.SelectionMode.NONE)
+    list_box.set_margin_top(4)
+    list_box.set_margin_bottom(6)
+    list_box.set_margin_start(1)
+    list_box.set_margin_end(1)
 
     for label, value in zip(labels, values):
       val_str = str(value) if value not in (None, "", "N/A") else "—"
-      row = Adw.ActionRow(title=label)
-      val_label = Gtk.Label(label=val_str,
-                            valign=Gtk.Align.CENTER,
-                            halign=Gtk.Align.END,
-                            selectable=True,
-                            wrap=True,
-                            wrap_mode=Pango.WrapMode.WORD_CHAR,
-                            max_width_chars=36)
-      val_label.add_css_class("property-value")
-      if val_str == "—":
-        val_label.add_css_class("dim-label")
-      else:
-        val_label.add_css_class("accent")
-      row.add_suffix(val_label)
-      group.add(row)
 
-    return page
+      row = Gtk.ListBoxRow()
+      row.set_activatable(False)
+
+      row_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,
+                        spacing=12,
+                        margin_start=14,
+                        margin_end=14,
+                        margin_top=10,
+                        margin_bottom=10)
+
+      lbl = Gtk.Label(label=label,
+                      xalign=0,
+                      halign=Gtk.Align.START)
+      lbl.add_css_class("prop-row-key")
+      row_box.append(lbl)
+
+      val_lbl = Gtk.Label(label=val_str,
+                          xalign=1,
+                          halign=Gtk.Align.END,
+                          hexpand=True,
+                          selectable=True)
+      val_lbl.add_css_class("prop-row-val")
+      if val_str == "—":
+        val_lbl.add_css_class("dim-label")
+      else:
+        val_lbl.add_css_class("accent")
+      row_box.append(val_lbl)
+
+      row.set_child(row_box)
+      list_box.append(row)
+
+    scroller.set_child(list_box)
+    return scroller
 
 
 class VegardWindow(Adw.Window):
