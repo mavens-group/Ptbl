@@ -915,15 +915,7 @@ class MainWindow(Adw.ApplicationWindow):
     self.search.set_width_chars(22)
     self.search.connect("search-changed", self.filter_elements)
     self.search.connect("activate", self.open_first_match)
-    header.pack_start(self.search)
-
     menu = Gio.Menu()
-    color_menu = Gio.Menu()
-    color_menu.append("Standard Category Colors", "win.color-categories")
-    for prop in HEATMAP_PROPERTIES.keys():
-      color_menu.append(prop, f"win.color-prop::{prop}")
-    menu.append_submenu("Color Scheme", color_menu)
-
     tools = Gio.Menu()
     tools.append("Vegard’s law", "app.vegard")
     tools.append("Atomic radius trend", "app.atomic-radius")
@@ -939,17 +931,6 @@ class MainWindow(Adw.ApplicationWindow):
                                  menu_model=menu)
     menu_button.set_tooltip_text("Main menu")
     header.pack_end(menu_button)
-
-    cat_action = Gio.SimpleAction.new("color-categories", None)
-    cat_action.connect("activate", lambda *_: self.prop_dropdown.set_selected(0))
-    self.add_action(cat_action)
-
-    prop_action = Gio.SimpleAction.new_stateful(
-        "color-prop",
-        GLib.VariantType.new("s"),
-        GLib.Variant.new_string("Electronegativity"))
-    prop_action.connect("activate", self.on_menu_color_prop_activated)
-    self.add_action(prop_action)
 
     outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL,
                     spacing=4,
@@ -1263,13 +1244,6 @@ class MainWindow(Adw.ApplicationWindow):
       self.update_live_preview(self.hovered_number or self.focused_number)
     else:
       self.clear_preview()
-
-  def on_menu_color_prop_activated(self, _action, param):
-    prop_name = param.get_string()
-    props = list(HEATMAP_PROPERTIES.keys())
-    if prop_name in props:
-      idx = props.index(prop_name) + 1
-      self.prop_dropdown.set_selected(idx)
 
   def apply_heatmap(self, prop_name):
     table, field, unit = HEATMAP_PROPERTIES[prop_name]
@@ -1784,13 +1758,12 @@ class VegardWindow(Adw.Window):
     clamp.set_child(box)
 
     # Input Group
-    comp_group = Adw.PreferencesGroup(
-        title="Alloy Composition",
-        description="Enter alloy formula or element percentages (e.g. Cu50Zn50, Fe70Ni30, Ti0.5Al0.5, In0.53Ga0.47As).")
+    comp_group = Adw.PreferencesGroup()
     box.append(comp_group)
 
+    # Line 1: Alloy formula input + "Fetch & Model" button
     entry_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
-    self.entry = Gtk.Entry(text="Cu50Zn50", hexpand=True)
+    self.entry = Gtk.Entry(text="Cu50Zn50", hexpand=True, placeholder_text="Alloy formula (e.g. Cu50Zn50, Fe70Ni30, Ti0.5Al0.5)")
     self.entry.connect("activate", self.on_calculate_clicked)
     calc_btn = Gtk.Button(label="Fetch & Model")
     calc_btn.add_css_class("suggested-action")
@@ -1800,13 +1773,14 @@ class VegardWindow(Adw.Window):
     entry_box.append(calc_btn)
     comp_group.add(entry_box)
 
-    # Prototype Dropdown Row
-    self.proto_row = Adw.ComboRow(title="Base Crystal Prototype")
-    self.proto_row.set_subtitle("Select a reference phase from Materials Project")
+    # Line 2: Full-width Prototype Model Dropdown
+    proto_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8, margin_top=4)
+    self.proto_dropdown = Gtk.DropDown(hexpand=True)
     self.proto_model = Gtk.StringList.new(["[Local] Ideal Solid Solution (from elemental data)"])
-    self.proto_row.set_model(self.proto_model)
-    self.proto_row.connect("notify::selected", self.on_prototype_selected)
-    comp_group.add(self.proto_row)
+    self.proto_dropdown.set_model(self.proto_model)
+    self.proto_dropdown.connect("notify::selected", self.on_prototype_selected)
+    proto_box.append(self.proto_dropdown)
+    comp_group.add(proto_box)
 
     # Status / Info label
     self.status_label = Gtk.Label(label="", wrap=True, xalign=0)
@@ -1929,8 +1903,8 @@ class VegardWindow(Adw.Window):
 
     items.append("[Local] Ideal Solid Solution (from elemental data)")
     self.proto_model = Gtk.StringList.new(items)
-    self.proto_row.set_model(self.proto_model)
-    self.proto_row.set_selected(0)
+    self.proto_dropdown.set_model(self.proto_model)
+    self.proto_dropdown.set_selected(0)
     self.status_label.set_text(f"Found {len(materials)} candidate phases from Materials Project.")
     self.apply_selected_model(composition)
 
@@ -1939,8 +1913,8 @@ class VegardWindow(Adw.Window):
     self.mp_materials = []
     items = ["[Local] Ideal Solid Solution (from elemental data)"]
     self.proto_model = Gtk.StringList.new(items)
-    self.proto_row.set_model(self.proto_model)
-    self.proto_row.set_selected(0)
+    self.proto_dropdown.set_model(self.proto_model)
+    self.proto_dropdown.set_selected(0)
     self.calculate_local_fallback(composition, msg=f"Materials Project notice: {err_msg}. Using local fallback.")
 
   def on_prototype_selected(self, *_):
@@ -1949,7 +1923,7 @@ class VegardWindow(Adw.Window):
       self.apply_selected_model(composition)
 
   def apply_selected_model(self, composition):
-    idx = self.proto_row.get_selected()
+    idx = self.proto_dropdown.get_selected()
     if idx < len(self.mp_materials):
       mat = self.mp_materials[idx]
       self.calculate_with_mp_prototype(mat, composition)
