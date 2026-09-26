@@ -372,77 +372,81 @@ button.element-card.actinide:hover, button.legend-pill.actinide:hover { backgrou
 .centerpiece-card {
   background: alpha(@card_bg_color, 0.88);
   border: 1px solid alpha(currentColor, 0.08);
-  border-radius: 12px;
-  padding: 8px 14px;
+  border-radius: 14px;
+  padding: 10px 18px;
   box-shadow: 0 1px 4px alpha(#000, 0.06);
 }
 
 .hero-tile {
-  min-width: 54px;
-  min-height: 60px;
-  border-radius: 8px;
-  padding: 3px 6px;
+  min-width: 68px;
+  min-height: 84px;
+  border-radius: 10px;
+  padding: 5px 8px;
   border: 1px solid alpha(#000, 0.08);
-  box-shadow: 0 2px 5px alpha(#000, 0.12);
+  box-shadow: 0 2px 6px alpha(#000, 0.12);
   color: #1b1b1f;
 }
 
 .hero-tile-num {
-  font-size: 8pt;
+  font-size: 10pt;
   font-weight: 700;
   opacity: 0.85;
 }
 
 .hero-tile-radio {
-  font-size: 8pt;
+  font-size: 10pt;
   font-weight: 800;
   color: #c75000;
 }
 
 .hero-tile-sym {
-  font-size: 20pt;
+  font-size: 28pt;
   font-weight: 850;
   letter-spacing: -0.5px;
 }
 
 .hero-tile-weight {
-  font-size: 7pt;
+  font-size: 8pt;
   font-weight: 600;
   opacity: 0.85;
   font-feature-settings: 'tnum';
 }
 
 .hero-name-label {
-  font-size: 14pt;
-  font-weight: 800;
-  letter-spacing: -0.2px;
+  font-size: 18pt;
+  font-weight: 850;
+  letter-spacing: -0.3px;
 }
 
 .hero-sub-label {
-  font-size: 8.5pt;
+  font-size: 10pt;
   opacity: 0.72;
   font-feature-settings: 'tnum';
 }
 
-.hero-badge {
-  font-size: 8pt;
-  font-weight: 600;
-  border-radius: 9999px;
-  padding: 2px 7px;
-  border: 1px solid alpha(currentColor, 0.10);
+.grouped-surface {
   background: alpha(currentColor, 0.06);
+  border: 1px solid alpha(currentColor, 0.10);
+  border-radius: 8px;
+  padding: 3px 8px;
+}
+
+.grouped-surface-item {
+  font-size: 9pt;
+  font-weight: 600;
+  padding: 0 4px;
 }
 
 .hero-prop-text {
-  font-size: 8.5pt;
+  font-size: 9.5pt;
   font-feature-settings: 'tnum';
 }
 
 .hero-highlight-badge {
-  font-size: 8pt;
+  font-size: 9.5pt;
   font-weight: 700;
-  border-radius: 6px;
-  padding: 2px 6px;
+  border-radius: 8px;
+  padding: 3px 8px;
   background: alpha(@accent_color, 0.14);
   color: @accent_color;
   border: 1px solid alpha(@accent_color, 0.22);
@@ -452,7 +456,14 @@ button.element-card.actinide:hover, button.legend-pill.actinide:hover { backgrou
 .bottom-bar {
   background: alpha(@headerbar_bg_color, 0.95);
   border-top: 1px solid alpha(currentColor, 0.08);
-  padding: 4px 10px;
+  padding: 5px 12px;
+}
+
+.bottom-bar .grouped-surface {
+  background: alpha(currentColor, 0.04);
+  border: 1px solid alpha(currentColor, 0.08);
+  border-radius: 10px;
+  padding: 2px;
 }
 
 .legend-pill {
@@ -725,14 +736,14 @@ class MainWindow(Adw.ApplicationWindow):
 
   def setup_centerpiece(self):
     self.centerpiece = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,
-                               spacing=14,
+                               spacing=16,
                                hexpand=True,
                                vexpand=True,
-                               valign=Gtk.Align.CENTER)
+                               valign=Gtk.Align.FILL)
     self.centerpiece.add_css_class("centerpiece-card")
 
     # Left Section: Hero Element Tile
-    self.hero_tile = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=1, valign=Gtk.Align.CENTER)
+    self.hero_tile = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2, valign=Gtk.Align.FILL)
     self.hero_tile.add_css_class("hero-tile")
     self.hero_tile.add_css_class("nonmetal")
 
@@ -758,15 +769,15 @@ class MainWindow(Adw.ApplicationWindow):
 
     self.prev_tile_weight = Gtk.Label(label="1.008 u", halign=Gtk.Align.CENTER)
     self.prev_tile_weight.add_css_class("hero-tile-weight")
-    self.prev_tile_weight.set_width_chars(8)
-    self.prev_tile_weight.set_max_width_chars(8)
+    self.prev_tile_weight.set_width_chars(9)
+    self.prev_tile_weight.set_max_width_chars(9)
     self.prev_tile_weight.set_ellipsize(Pango.EllipsizeMode.END)
     self.hero_tile.append(self.prev_tile_weight)
 
     self.centerpiece.append(self.hero_tile)
 
-    # Middle Section: Identity, Structure & Badges
-    mid_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2, valign=Gtk.Align.CENTER)
+    # Middle Section: Identity, Structure & Grouped Surface
+    mid_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=3, valign=Gtk.Align.CENTER)
 
     self.prev_name = Gtk.Label(label="Hydrogen", xalign=0)
     self.prev_name.add_css_class("hero-name-label")
@@ -782,29 +793,38 @@ class MainWindow(Adw.ApplicationWindow):
     self.prev_sub.set_max_width_chars(28)
     mid_box.append(self.prev_sub)
 
-    badge_row = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=4, margin_top=2)
+    # Grouped Surface for Category, Phase, Valency
+    badge_surface = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6, margin_top=4)
+    badge_surface.add_css_class("grouped-surface")
+
     self.prev_cat_badge = Gtk.Label(label="Nonmetal")
-    self.prev_cat_badge.add_css_class("hero-badge")
+    self.prev_cat_badge.add_css_class("grouped-surface-item")
     self.prev_cat_badge.set_width_chars(12)
     self.prev_cat_badge.set_max_width_chars(12)
     self.prev_cat_badge.set_ellipsize(Pango.EllipsizeMode.END)
-    badge_row.append(self.prev_cat_badge)
+    badge_surface.append(self.prev_cat_badge)
+
+    sep1 = Gtk.Separator(orientation=Gtk.Orientation.VERTICAL)
+    badge_surface.append(sep1)
 
     self.prev_phase_badge = Gtk.Label(label="Gas")
-    self.prev_phase_badge.add_css_class("hero-badge")
+    self.prev_phase_badge.add_css_class("grouped-surface-item")
     self.prev_phase_badge.set_width_chars(8)
     self.prev_phase_badge.set_max_width_chars(8)
     self.prev_phase_badge.set_ellipsize(Pango.EllipsizeMode.END)
-    badge_row.append(self.prev_phase_badge)
+    badge_surface.append(self.prev_phase_badge)
+
+    sep2 = Gtk.Separator(orientation=Gtk.Orientation.VERTICAL)
+    badge_surface.append(sep2)
 
     self.prev_val_badge = Gtk.Label(label="Val: +1, -1")
-    self.prev_val_badge.add_css_class("hero-badge")
+    self.prev_val_badge.add_css_class("grouped-surface-item")
     self.prev_val_badge.set_width_chars(14)
     self.prev_val_badge.set_max_width_chars(14)
     self.prev_val_badge.set_ellipsize(Pango.EllipsizeMode.END)
-    badge_row.append(self.prev_val_badge)
+    badge_surface.append(self.prev_val_badge)
 
-    mid_box.append(badge_row)
+    mid_box.append(badge_surface)
     self.centerpiece.append(mid_box)
 
     # Vertical Separator
@@ -812,7 +832,7 @@ class MainWindow(Adw.ApplicationWindow):
     self.centerpiece.append(sep)
 
     # Right Section: Key Physical & Electronic Overview
-    right_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2, valign=Gtk.Align.CENTER)
+    right_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=3, valign=Gtk.Align.CENTER)
 
     self.prev_econf = Gtk.Label(label="Config: 1s¹", xalign=0)
     self.prev_econf.add_css_class("hero-prop-text")
@@ -846,17 +866,20 @@ class MainWindow(Adw.ApplicationWindow):
 
   def setup_bottom_bar(self, toolbar_view):
     self.bottom_bar = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL,
-                              spacing=6,
-                              margin_start=10,
-                              margin_end=10,
-                              margin_top=3,
-                              margin_bottom=3,
+                              spacing=8,
+                              margin_start=12,
+                              margin_end=12,
+                              margin_top=4,
+                              margin_bottom=4,
                               valign=Gtk.Align.CENTER)
     self.bottom_bar.add_css_class("bottom-bar")
 
     filter_lbl = Gtk.Label(label="Filter:")
     filter_lbl.add_css_class("dim-label")
     self.bottom_bar.append(filter_lbl)
+
+    pills_surface = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=2)
+    pills_surface.add_css_class("grouped-surface")
 
     self.category_pills = {}
     for cat_id, cat_title in CATEGORY_NAMES.items():
@@ -866,8 +889,10 @@ class MainWindow(Adw.ApplicationWindow):
       pill.add_css_class(cat_id)
       pill.set_tooltip_text(f"Filter {cat_title}")
       pill.connect("clicked", self.on_category_pill_clicked, cat_id)
-      self.bottom_bar.append(pill)
+      pills_surface.append(pill)
       self.category_pills[cat_id] = pill
+
+    self.bottom_bar.append(pills_surface)
 
     self.btn_clear_filter = Gtk.Button(label="Show All")
     self.btn_clear_filter.add_css_class("legend-pill")
