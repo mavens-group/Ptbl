@@ -5,10 +5,14 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import re
 import site
 import sys
 import sysconfig
+import threading
+import urllib.error
+import urllib.request
 from pathlib import Path
 
 import gi
@@ -331,6 +335,124 @@ def parse_numeric(val):
     return None
 
 
+CONFIG_DIR = Path.home() / ".config" / "ptbl"
+CONFIG_FILE = CONFIG_DIR / "config.json"
+
+
+def get_config() -> dict:
+  if CONFIG_FILE.is_file():
+    try:
+      return json.loads(CONFIG_FILE.read_text())
+    except Exception:
+      return {}
+  return {}
+
+
+def save_config(cfg: dict):
+  try:
+    CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+    CONFIG_FILE.write_text(json.dumps(cfg, indent=2))
+    CONFIG_FILE.chmod(0o600)
+  except Exception as e:
+    print(f"Error saving config: {e}", file=sys.stderr)
+
+
+def get_mp_api_key() -> str:
+  cfg = get_config()
+  return cfg.get("mp_api_key") or os.environ.get("MP_API_KEY", "")
+
+
+def set_mp_api_key(key: str):
+  cfg = get_config()
+  cfg["mp_api_key"] = key.strip()
+  save_config(cfg)
+
+
+def test_mp_api_key(api_key: str) -> bool:
+  if not api_key.strip():
+    return False
+  url = "https://api.materialsproject.org/materials/summary/?formula=Si&_fields=material_id&_limit=1"
+  req = urllib.request.Request(
+      url,
+      headers={
+          "X-API-KEY": api_key.strip(),
+          "accept": "application/json",
+          "User-Agent": "Ptbl/2.0",
+      },
+  )
+  with urllib.request.urlopen(req, timeout=8) as resp:
+    return resp.status == 200
+
+
+def fetch_mp_materials(elements: list[str], api_key: str) -> list[dict]:
+  """Fetch crystal structures and stability data for a chemical system from Materials Project."""
+  if not api_key.strip():
+    raise ValueError("Materials Project API key is not configured.")
+  chemsys = "-".join(sorted(set(elements)))
+  url = (
+      f"https://api.materialsproject.org/materials/summary/?"
+      f"chemsys={chemsys}&"
+      f"_fields=material_id,formula_pretty,symmetry,structure,energy_above_hull,formation_energy_per_atom,density,volume&"
+      f"_limit=25"
+  )
+  req = urllib.request.Request(
+      url,
+      headers={
+          "X-API-KEY": api_key.strip(),
+          "accept": "application/json",
+          "User-Agent": "Ptbl/2.0",
+      },
+  )
+  with urllib.request.urlopen(req, timeout=12) as resp:
+    payload = json.loads(resp.read().decode("utf-8"))
+    materials = payload.get("data", [])
+    materials.sort(key=lambda m: m.get("energy_above_hull", float("inf")))
+    return materials
+
+
+def build_cif_text(formula: str, space_group_symbol: str, space_group_num: int | str, lattice: dict, sites: list) -> str:
+  """Generate a standard CIF string from unit cell parameters and atomic sites."""
+  a = float(lattice.get("a", 1.0))
+  b = float(lattice.get("b", 1.0))
+  c = float(lattice.get("c", 1.0))
+  alpha = float(lattice.get("alpha", 90.0))
+  beta = float(lattice.get("beta", 90.0))
+  gamma = float(lattice.get("gamma", 90.0))
+  vol = float(lattice.get("volume", a * b * c))
+
+  cif_lines = [
+      f"data_{formula.replace(' ', '_')}",
+      f"_chemical_formula_sum '{formula}'",
+      f"_cell_length_a {a:.5f}",
+      f"_cell_length_b {b:.5f}",
+      f"_cell_length_c {c:.5f}",
+      f"_cell_angle_alpha {alpha:.3f}",
+      f"_cell_angle_beta {beta:.3f}",
+      f"_cell_angle_gamma {gamma:.3f}",
+      f"_cell_volume {vol:.4f}",
+      f"_symmetry_space_group_name_H-M '{space_group_symbol}'",
+      f"_symmetry_Int_Tables_number {space_group_num}",
+      "",
+      "loop_",
+      "  _atom_site_label",
+      "  _atom_site_type_symbol",
+      "  _atom_site_fract_x",
+      "  _atom_site_fract_y",
+      "  _atom_site_fract_z",
+      "  _atom_site_occupancy",
+  ]
+  for idx, site in enumerate(sites, 1):
+    species = site.get("species", [])
+    symbol = species[0].get("element", "X") if species else "X"
+    occu = species[0].get("occu", 1.0) if species else 1.0
+    abc = site.get("abc", [0.0, 0.0, 0.0])
+    cif_lines.append(
+        f"  {symbol}{idx} {symbol} {abc[0]:.6f} {abc[1]:.6f} {abc[2]:.6f} {occu:.4f}"
+    )
+  cif_lines.append("")
+  return "\n".join(cif_lines)
+
+
 def get_heatmap_rgb(t):
   """Perceptually balanced 4-stop M3 gradient for t in [0.0, 1.0]."""
   if t is None:
@@ -615,6 +737,89 @@ class PeriodicTable(Adw.Application):
         number: (symbol, name, category)
         for number, symbol, name, _col, _row, category in ELEMENTS
     }
+class PreferencesDialog(Adw.PreferencesDialog):
+
+  def __init__(self, parent=None):
+    super().__init__(title="Preferences")
+    page = Adw.PreferencesPage(title="General", icon_name="preferences-system-symbolic")
+    self.add(page)
+
+    group = Adw.PreferencesGroup(
+        title="Materials Project Integration",
+        description="Connect to Materials Project to query real crystal prototypes, thermodynamic stability, and unit cell structures for alloys.")
+    page.add(group)
+
+    self.key_row = Adw.PasswordEntryRow(title="API Key")
+    current_key = get_mp_api_key()
+    self.key_row.set_text(current_key)
+    self.key_row.connect("changed", self.on_key_changed)
+    group.add(self.key_row)
+
+    test_row = Adw.ActionRow(title="Connection Status")
+    self.status_label = Gtk.Label(
+        label="Configured" if current_key else "Not configured",
+        valign=Gtk.Align.CENTER)
+    self.status_label.add_css_class("dim-label")
+    test_row.add_suffix(self.status_label)
+
+    test_btn = Gtk.Button(label="Test Connection", valign=Gtk.Align.CENTER)
+    test_btn.add_css_class("flat")
+    test_btn.connect("clicked", self.on_test_clicked)
+    test_row.add_suffix(test_btn)
+    group.add(test_row)
+
+    link_row = Adw.ActionRow(
+        title="Get a free API Key",
+        subtitle="https://materialsproject.org/api")
+    link_btn = Gtk.Button(icon_name="adw-external-link-symbolic", valign=Gtk.Align.CENTER)
+    link_btn.add_css_class("flat")
+    link_btn.set_tooltip_text("Open Materials Project API Portal")
+    link_btn.connect("clicked", lambda *_: Gtk.show_uri(parent or self, "https://materialsproject.org/api", Gdk.CURRENT_TIME))
+    link_row.add_suffix(link_btn)
+    group.add(link_row)
+
+  def on_key_changed(self, entry):
+    set_mp_api_key(entry.get_text())
+    self.status_label.set_text("Saved")
+    self.status_label.remove_css_class("error")
+    self.status_label.remove_css_class("success")
+
+  def on_test_clicked(self, _btn):
+    key = self.key_row.get_text().strip()
+    if not key:
+      self.status_label.set_text("Enter key first")
+      return
+    self.status_label.set_text("Testing…")
+
+    def test_worker():
+      try:
+        ok = test_mp_api_key(key)
+        GLib.idle_add(self._on_test_done, ok, None)
+      except Exception as e:
+        GLib.idle_add(self._on_test_done, False, str(e))
+
+    threading.Thread(target=test_worker, daemon=True).start()
+
+  def _on_test_done(self, ok, err):
+    if ok:
+      self.status_label.set_text("✓ Connected")
+      self.status_label.add_css_class("success")
+      self.status_label.remove_css_class("error")
+    else:
+      self.status_label.set_text("✗ Invalid key or error")
+      self.status_label.add_css_class("error")
+      self.status_label.remove_css_class("success")
+
+
+class PeriodicTable(Adw.Application):
+
+  def __init__(self):
+    super().__init__(application_id=APP_ID,
+                     flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
+    self.elements = {
+        number: (symbol, name, category)
+        for number, symbol, name, _col, _row, category in ELEMENTS
+    }
     self.data = load_exported_data()
 
   def do_startup(self):
@@ -627,10 +832,12 @@ class PeriodicTable(Adw.Application):
           display, provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
     for name, callback in (("about", self.show_about),
-                           ("vegard", self.show_vegard)):
+                           ("vegard", self.show_vegard),
+                           ("preferences", self.show_preferences)):
       action = Gio.SimpleAction.new(name, None)
       action.connect("activate", callback)
       self.add_action(action)
+    self.set_accels_for_action("app.preferences", ["<primary>comma"])
 
     for key in ("atomic-radius", "covalent-radius", "vdw-radius",
                 "electron-affinity"):
@@ -662,6 +869,9 @@ class PeriodicTable(Adw.Application):
         developers=["Rudra Banerjee"],
     )
     about.present(parent)
+
+  def show_preferences(self, *_):
+    PreferencesDialog(self.props.active_window).present(self.props.active_window)
 
   def show_vegard(self, *_):
     VegardWindow(self).present()
@@ -721,6 +931,7 @@ class MainWindow(Adw.ApplicationWindow):
     tools.append("van der Waals radius trend", "app.vdw-radius")
     tools.append("Electron affinity trend", "app.electron-affinity")
     menu.append_submenu("Tools & Trends", tools)
+    menu.append("Preferences", "app.preferences")
     menu.append("About Ptbl", "app.about")
     menu.append("Quit", "app.quit")
 
@@ -1516,104 +1727,374 @@ class ElementWindow(Adw.Window):
     return scroller
 
 
+def cell_volume(a: float, b: float, c: float, alpha_deg: float, beta_deg: float, gamma_deg: float) -> float:
+  """Calculate exact 3D unit cell volume for arbitrary triclinic/monoclinic/hexagonal/cubic cells."""
+  ra, rb, rg = math.radians(alpha_deg), math.radians(beta_deg), math.radians(gamma_deg)
+  val = 1.0 - math.cos(ra)**2 - math.cos(rb)**2 - math.cos(rg)**2 + 2.0 * math.cos(ra) * math.cos(rb) * math.cos(rg)
+  return a * b * c * math.sqrt(max(0.0, val))
+
+
+def parse_composition(formula: str) -> list[tuple[str, float]]:
+  """Parse alloy formula into normalized atomic fractions e.g. [('Cu', 0.5), ('Zn', 0.5)]."""
+  matches = re.findall(r"([A-Z][a-z]?)(?:([\d.]+))?", formula.strip())
+  if not matches:
+    return []
+  total_specified = 0.0
+  parsed = []
+  for elem, amt_str in matches:
+    amt = float(amt_str) if amt_str else 1.0
+    parsed.append((elem, amt))
+    total_specified += amt
+  if total_specified <= 0:
+    return []
+  return [(elem, amt / total_specified) for elem, amt in parsed]
+
+
 class VegardWindow(Adw.Window):
 
   def __init__(self, app):
     super().__init__(application=app,
                      title="Vegard’s Law",
-                     default_width=560,
-                     default_height=460)
+                     default_width=640,
+                     default_height=680)
     self.app = app
+    self.current_formula = "Cu50Zn50"
+    self.current_cif = ""
+    self.mp_materials = []
+    self.is_fetching = False
 
     toolbar_view = Adw.ToolbarView()
     self.set_content(toolbar_view)
 
     header = Adw.HeaderBar()
-    header.set_title_widget(Adw.WindowTitle(title="Vegard’s Law", subtitle="Alloy parameter estimation"))
+    header.set_title_widget(Adw.WindowTitle(title="Vegard’s Law", subtitle="Materials Project alloy modeling"))
+
+    self.spinner = Adw.Spinner()
+    self.spinner.set_visible(False)
+    header.pack_start(self.spinner)
+
+    pref_btn = Gtk.Button(icon_name="preferences-system-symbolic")
+    pref_btn.set_tooltip_text("Open Preferences (Materials Project API Key)")
+    pref_btn.connect("clicked", lambda *_: PreferencesDialog(self).present(self))
+    header.pack_end(pref_btn)
     toolbar_view.add_top_bar(header)
 
-    clamp = Adw.Clamp(maximum_size=520, margin_top=16, margin_bottom=16, margin_start=16, margin_end=16)
+    clamp = Adw.Clamp(maximum_size=600, margin_top=16, margin_bottom=16, margin_start=16, margin_end=16)
     box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=16)
     clamp.set_child(box)
 
-    pref_group = Adw.PreferencesGroup(
-        title="Composition",
-        description="Estimate composition-weighted lattice parameters and atomic weight using element percentages totaling 100% (e.g. Cu50Zn50).")
-    box.append(pref_group)
+    # Input Group
+    comp_group = Adw.PreferencesGroup(
+        title="Alloy Composition",
+        description="Enter alloy formula or element percentages (e.g. Cu50Zn50, Fe70Ni30, Ti0.5Al0.5, In0.53Ga0.47As).")
+    box.append(comp_group)
 
     entry_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
     self.entry = Gtk.Entry(text="Cu50Zn50", hexpand=True)
-    self.entry.connect("activate", self.calculate)
-    calc_btn = Gtk.Button(label="Calculate")
+    self.entry.connect("activate", self.on_calculate_clicked)
+    calc_btn = Gtk.Button(label="Fetch & Model")
     calc_btn.add_css_class("suggested-action")
     calc_btn.add_css_class("pill")
-    calc_btn.connect("clicked", self.calculate)
+    calc_btn.connect("clicked", self.on_calculate_clicked)
     entry_box.append(self.entry)
     entry_box.append(calc_btn)
-    pref_group.add(entry_box)
+    comp_group.add(entry_box)
 
-    self.result_group = Adw.PreferencesGroup(title="Estimated Properties")
+    # Prototype Dropdown Row
+    self.proto_row = Adw.ComboRow(title="Base Crystal Prototype")
+    self.proto_row.set_subtitle("Select a reference phase from Materials Project")
+    self.proto_model = Gtk.StringList.new(["[Local] Ideal Solid Solution (from elemental data)"])
+    self.proto_row.set_model(self.proto_model)
+    self.proto_row.connect("notify::selected", self.on_prototype_selected)
+    comp_group.add(self.proto_row)
+
+    # Status / Info label
+    self.status_label = Gtk.Label(label="", wrap=True, xalign=0)
+    self.status_label.add_css_class("dim-label")
+    box.append(self.status_label)
+
+    # Results Group
+    self.result_group = Adw.PreferencesGroup(title="Crystallographic Properties")
     box.append(self.result_group)
 
-    self.row_weight = Adw.ActionRow(title="Atomic weight")
-    self.lbl_weight = Gtk.Label(label="—", selectable=True)
-    self.lbl_weight.add_css_class("property-value")
-    self.row_weight.add_suffix(self.lbl_weight)
-    self.result_group.add(self.row_weight)
-
-    self.row_latpar = Adw.ActionRow(title="Lattice parameters")
+    self.row_latpar = Adw.ActionRow(title="Lattice parameters (a, b, c)")
     self.lbl_latpar = Gtk.Label(label="—", selectable=True)
     self.lbl_latpar.add_css_class("property-value")
     self.row_latpar.add_suffix(self.lbl_latpar)
     self.result_group.add(self.row_latpar)
 
-    self.row_vol = Adw.ActionRow(title="Estimated cell volume")
+    self.row_angles = Adw.ActionRow(title="Unit cell angles (α, β, γ)")
+    self.lbl_angles = Gtk.Label(label="—", selectable=True)
+    self.lbl_angles.add_css_class("property-value")
+    self.row_angles.add_suffix(self.lbl_angles)
+    self.result_group.add(self.row_angles)
+
+    self.row_vol = Adw.ActionRow(title="Unit cell volume")
     self.lbl_vol = Gtk.Label(label="—", selectable=True)
     self.lbl_vol.add_css_class("property-value")
     self.row_vol.add_suffix(self.lbl_vol)
     self.result_group.add(self.row_vol)
 
-    self.status_label = Gtk.Label(label="", wrap=True, xalign=0)
-    self.status_label.add_css_class("dim-label")
-    box.append(self.status_label)
+    self.row_density = Adw.ActionRow(title="Calculated X-ray density")
+    self.lbl_density = Gtk.Label(label="—", selectable=True)
+    self.lbl_density.add_css_class("property-value")
+    self.row_density.add_suffix(self.lbl_density)
+    self.result_group.add(self.row_density)
+
+    self.row_weight = Adw.ActionRow(title="Formula mass")
+    self.lbl_weight = Gtk.Label(label="—", selectable=True)
+    self.lbl_weight.add_css_class("property-value")
+    self.row_weight.add_suffix(self.lbl_weight)
+    self.result_group.add(self.row_weight)
+
+    self.row_symm = Adw.ActionRow(title="Space group & crystal system")
+    self.lbl_symm = Gtk.Label(label="—", selectable=True)
+    self.lbl_symm.add_css_class("property-value")
+    self.row_symm.add_suffix(self.lbl_symm)
+    self.result_group.add(self.row_symm)
+
+    self.row_stability = Adw.ActionRow(title="Thermodynamic stability")
+    self.lbl_stability = Gtk.Label(label="—", selectable=True)
+    self.lbl_stability.add_css_class("property-value")
+    self.row_stability.add_suffix(self.lbl_stability)
+    self.result_group.add(self.row_stability)
+
+    # Action Buttons: Copy & Export CIF
+    action_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10, halign=Gtk.Align.END)
+    self.btn_copy_cif = Gtk.Button(label="Copy CIF")
+    self.btn_copy_cif.add_css_class("pill")
+    self.btn_copy_cif.connect("clicked", self.on_copy_cif)
+    self.btn_copy_cif.set_sensitive(False)
+    action_box.append(self.btn_copy_cif)
+
+    self.btn_export_cif = Gtk.Button(label="Export CIF…")
+    self.btn_export_cif.add_css_class("pill")
+    self.btn_export_cif.connect("clicked", self.on_export_cif)
+    self.btn_export_cif.set_sensitive(False)
+    action_box.append(self.btn_export_cif)
+    box.append(action_box)
 
     toolbar_view.set_content(clamp)
-    self.calculate()
+    self.on_calculate_clicked()
 
-  def calculate(self, *_):
+  def on_calculate_clicked(self, *_):
     formula = self.entry.get_text().strip()
-    parts = re.findall(r"([A-Z][a-z]?)(\d+(?:\.\d+)?)", formula)
-    if not parts or sum(float(pct) for _, pct in parts) != 100:
-      self.status_label.set_label(
-          "Please enter valid element symbols with percentages totaling 100 (e.g. Cu50Zn50, Fe70Ni30).")
-      self.lbl_weight.set_label("—")
-      self.lbl_latpar.set_label("—")
-      self.lbl_vol.set_label("—")
+    self.current_formula = formula
+    composition = parse_composition(formula)
+    if not composition:
+      self.status_label.set_text("Please enter a valid chemical formula (e.g. Cu50Zn50, Fe70Ni30, Ti0.5Al0.5).")
+      self.reset_results()
       return
+
+    elements = [elem for elem, _ in composition]
+    for elem in elements:
+      found = any(s == elem for _, s, _, _, _, _ in ELEMENTS)
+      if not found:
+        self.status_label.set_text(f"Element '{elem}' is not recognized in periodic table.")
+        self.reset_results()
+        return
+
+    api_key = get_mp_api_key()
+    if api_key:
+      self.fetch_from_materials_project(elements, composition)
+    else:
+      self.calculate_local_fallback(composition, msg="Offline estimate (Configure Materials Project API key in Preferences for verified crystal prototypes).")
+
+  def fetch_from_materials_project(self, elements, composition):
+    self.spinner.set_visible(True)
+    self.status_label.set_text(f"Querying Materials Project for {'-'.join(elements)} phases…")
+
+    def worker():
+      try:
+        materials = fetch_mp_materials(elements, get_mp_api_key())
+        GLib.idle_add(self._on_mp_fetch_success, materials, composition)
+      except Exception as e:
+        GLib.idle_add(self._on_mp_fetch_error, str(e), composition)
+
+    threading.Thread(target=worker, daemon=True).start()
+
+  def _on_mp_fetch_success(self, materials, composition):
+    self.spinner.set_visible(False)
+    self.mp_materials = materials
+    items = []
+    for mat in materials:
+      mp_id = mat.get("material_id", "")
+      form = mat.get("formula_pretty", "")
+      symm = mat.get("symmetry", {})
+      spc = symm.get("symbol", "")
+      crys = symm.get("crystal_system", "")
+      e_hull = mat.get("energy_above_hull", 0.0)
+      stab_str = "Ground State (0.0 eV/atom)" if e_hull == 0.0 else f"+{e_hull:.3f} eV/atom"
+      items.append(f"{form} ({crys}, {spc}, {mp_id}) • {stab_str}")
+
+    items.append("[Local] Ideal Solid Solution (from elemental data)")
+    self.proto_model = Gtk.StringList.new(items)
+    self.proto_row.set_model(self.proto_model)
+    self.proto_row.set_selected(0)
+    self.status_label.set_text(f"Found {len(materials)} candidate phases from Materials Project.")
+    self.apply_selected_model(composition)
+
+  def _on_mp_fetch_error(self, err_msg, composition):
+    self.spinner.set_visible(False)
+    self.mp_materials = []
+    items = ["[Local] Ideal Solid Solution (from elemental data)"]
+    self.proto_model = Gtk.StringList.new(items)
+    self.proto_row.set_model(self.proto_model)
+    self.proto_row.set_selected(0)
+    self.calculate_local_fallback(composition, msg=f"Materials Project notice: {err_msg}. Using local fallback.")
+
+  def on_prototype_selected(self, *_):
+    composition = parse_composition(self.current_formula)
+    if composition:
+      self.apply_selected_model(composition)
+
+  def apply_selected_model(self, composition):
+    idx = self.proto_row.get_selected()
+    if idx < len(self.mp_materials):
+      mat = self.mp_materials[idx]
+      self.calculate_with_mp_prototype(mat, composition)
+    else:
+      self.calculate_local_fallback(composition, msg="Using local elemental solid-solution calculation.")
+
+  def calculate_with_mp_prototype(self, mat, composition):
+    struct = mat.get("structure", {})
+    lattice = struct.get("lattice", {})
+    sites = struct.get("sites", [])
+    symm = mat.get("symmetry", {})
+    spc = symm.get("symbol", "P1")
+    spc_num = symm.get("number", 1)
+    crys = symm.get("crystal_system", "Unknown")
+    e_hull = mat.get("energy_above_hull", 0.0)
+
+    a0 = float(lattice.get("a", 3.0))
+    b0 = float(lattice.get("b", 3.0))
+    c0 = float(lattice.get("c", 3.0))
+    alpha = float(lattice.get("alpha", 90.0))
+    beta = float(lattice.get("beta", 90.0))
+    gamma = float(lattice.get("gamma", 90.0))
+
+    r_target = 0.0
+    weight_target = 0.0
+    for symbol, fraction in composition:
+      num = next((n for n, row in self.app.data["Overview"].items() if row["Symbol"] == symbol), None)
+      if num:
+        weight_target += float(self.app.data["Overview"][num].get("Weight", 50.0)) * fraction
+        r_val = parse_numeric(self.app.data["Crystal"].get(num, {}).get("Atomrad")) or 1.5
+        r_target += r_val * fraction
+
+    r_proto = 0.0
+    proto_formula = mat.get("formula_pretty", "")
+    proto_comp = parse_composition(proto_formula) or composition
+    for symbol, fraction in proto_comp:
+      num = next((n for n, row in self.app.data["Overview"].items() if row["Symbol"] == symbol), None)
+      if num:
+        r_val = parse_numeric(self.app.data["Crystal"].get(num, {}).get("Atomrad")) or 1.5
+        r_proto += r_val * fraction
+      else:
+        r_proto += 1.5 * fraction
+
+    scale = (r_target / r_proto) if (r_proto > 0 and r_target > 0) else 1.0
+    a, b, c = a0 * scale, b0 * scale, c0 * scale
+    vol = cell_volume(a, b, c, alpha, beta, gamma)
+
+    cell_mass = len(sites) * weight_target
+    density = (cell_mass / (vol * 0.602214)) if vol > 0 else 0.0
+
+    self.lbl_latpar.set_label(f"a = {a:.4f} Å,  b = {b:.4f} Å,  c = {c:.4f} Å")
+    self.lbl_angles.set_label(f"α = {alpha:.2f}°,  β = {beta:.2f}°,  γ = {gamma:.2f}°")
+    self.lbl_vol.set_label(f"{vol:.4f} Å³")
+    self.lbl_density.set_label(f"{density:.3f} g/cm³")
+    self.lbl_weight.set_label(f"{weight_target:.4f} u")
+    self.lbl_symm.set_label(f"{crys} • {spc} (#{spc_num})")
+
+    if e_hull == 0.0:
+      self.lbl_stability.set_label("Stable Ground State (0.0 eV/atom on hull)")
+    else:
+      self.lbl_stability.set_label(f"Metastable (+{e_hull:.3f} eV/atom above hull)")
+
+    scaled_lattice = {"a": a, "b": b, "c": c, "alpha": alpha, "beta": beta, "gamma": gamma, "volume": vol}
+    self.current_cif = build_cif_text(self.current_formula, spc, spc_num, scaled_lattice, sites)
+    self.btn_copy_cif.set_sensitive(True)
+    self.btn_export_cif.set_sensitive(True)
+
+  def calculate_local_fallback(self, composition, msg=""):
+    if msg:
+      self.status_label.set_text(msg)
 
     totals = [0.0, 0.0, 0.0]
     weight = 0.0
-    for symbol, percentage in parts:
-      number = next((n for n, row in self.app.data["Overview"].items()
-                     if row["Symbol"] == symbol), None)
+    for symbol, fraction in composition:
+      number = next((n for n, row in self.app.data["Overview"].items() if row["Symbol"] == symbol), None)
       row = self.app.data["Crystal"].get(number) if number else None
       if not row:
-        self.status_label.set_label(f"Element '{symbol}' not found in database.")
+        self.status_label.set_text(f"Element '{symbol}' not found in local database.")
+        self.reset_results()
         return
-      fraction = float(percentage) / 100
       try:
         weight += float(self.app.data["Overview"][number]["Weight"]) * fraction
         for i, field in enumerate(("latpar1", "latpar2", "latpar3")):
           totals[i] += float(row[field]) * fraction
       except (TypeError, ValueError):
-        self.status_label.set_label(f"Lattice data for '{symbol}' is incomplete for calculation.")
+        self.status_label.set_text(f"Lattice parameters for '{symbol}' incomplete in local database.")
+        self.reset_results()
         return
 
-    volume = math.prod(totals)
-    self.status_label.set_label(f"Calculation complete for {formula}.")
-    self.lbl_weight.set_label(f"{weight:.4f} u")
+    vol = totals[0] * totals[1] * totals[2]
+    density = (weight / (vol * 0.602214)) if vol > 0 else 0.0
+
     self.lbl_latpar.set_label(f"a = {totals[0]:.4f} Å,  b = {totals[1]:.4f} Å,  c = {totals[2]:.4f} Å")
-    self.lbl_vol.set_label(f"{volume:.4f} Å³")
+    self.lbl_angles.set_label("α = 90.00°,  β = 90.00°,  γ = 90.00°")
+    self.lbl_vol.set_label(f"{vol:.4f} Å³")
+    self.lbl_density.set_label(f"{density:.3f} g/cm³")
+    self.lbl_weight.set_label(f"{weight:.4f} u")
+    self.lbl_symm.set_label("Ideal Solid Solution (Estimated)")
+    self.lbl_stability.set_label("Estimated Linear Solution")
+
+    scaled_lattice = {"a": totals[0], "b": totals[1], "c": totals[2], "alpha": 90.0, "beta": 90.0, "gamma": 90.0, "volume": vol}
+    sites = [{"species": [{"element": sym, "occu": frac}], "abc": [0.0, 0.0, 0.0]} for sym, frac in composition]
+    self.current_cif = build_cif_text(self.current_formula, "P1", 1, scaled_lattice, sites)
+    self.btn_copy_cif.set_sensitive(True)
+    self.btn_export_cif.set_sensitive(True)
+
+  def reset_results(self):
+    self.lbl_latpar.set_label("—")
+    self.lbl_angles.set_label("—")
+    self.lbl_vol.set_label("—")
+    self.lbl_density.set_label("—")
+    self.lbl_weight.set_label("—")
+    self.lbl_symm.set_label("—")
+    self.lbl_stability.set_label("—")
+    self.btn_copy_cif.set_sensitive(False)
+    self.btn_export_cif.set_sensitive(False)
+    self.current_cif = ""
+
+  def on_copy_cif(self, _btn):
+    if not self.current_cif:
+      return
+    clipboard = self.get_display().get_clipboard()
+    clipboard.set(self.current_cif)
+    self.status_label.set_text("✓ CIF content copied to clipboard.")
+
+  def on_export_cif(self, _btn):
+    if not self.current_cif:
+      return
+    dialog = Gtk.FileDialog(title="Export CIF File", initial_name=f"{self.current_formula}.cif")
+    dialog.save(self, None, self._on_cif_save_done)
+
+  def _on_cif_save_done(self, dialog, result):
+    try:
+      file = dialog.save_finish(result)
+      if file:
+        file.replace_contents(
+            self.current_cif.encode("utf-8"),
+            None,
+            False,
+            Gio.FileCreateFlags.REPLACE_DESTINATION,
+            None,
+        )
+        self.status_label.set_text(f"✓ Exported CIF to {file.get_basename()}.")
+    except Exception:
+      pass
 
 
 class TrendWindow(Adw.Window):
