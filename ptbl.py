@@ -7,9 +7,13 @@ import json
 import math
 import os
 import re
+import shlex
+import shutil
 import site
+import subprocess
 import sys
 import sysconfig
+import tempfile
 import threading
 import urllib.error
 import urllib.request
@@ -366,6 +370,69 @@ def set_mp_api_key(key: str):
   cfg = get_config()
   cfg["mp_api_key"] = key.strip()
   save_config(cfg)
+
+
+KNOWN_VIEWERS = [
+    ("System Default (xdg-open)", "xdg-open", ["xdg-open"]),
+    ("VESTA", "vesta", ["vesta", "VESTA"]),
+    ("OVITO", "ovito", ["ovito"]),
+    ("ASE GUI", "ase gui", ["ase"]),
+    ("Avogadro", "avogadro", ["avogadro", "avogadro2"]),
+    ("PyMOL", "pymol", ["pymol"]),
+    ("Jmol", "jmol", ["jmol"]),
+    ("XCrySDen", "xcrysden", ["xcrysden"]),
+    ("Mercury", "mercury", ["mercury"]),
+]
+
+
+def get_available_viewers() -> list[tuple[str, str]]:
+  """Detect available crystal structure viewers on the user's system."""
+  available = [("System Default (xdg-open)", "xdg-open")]
+  for label, cmd, binaries in KNOWN_VIEWERS:
+    if label == "System Default (xdg-open)":
+      continue
+    for b in binaries:
+      path = shutil.which(b)
+      if path:
+        available.append((f"{label} ({b})", cmd))
+        break
+  available.append(("Custom Command…", "custom"))
+  return available
+
+
+def get_configured_viewer() -> tuple[str, str]:
+  """Return (viewer_cmd, custom_cmd) from config."""
+  cfg = get_config()
+  cmd = cfg.get("cif_viewer", "xdg-open")
+  custom_cmd = cfg.get("custom_viewer_cmd", "")
+  return cmd, custom_cmd
+
+
+def set_configured_viewer(cmd: str, custom_cmd: str = ""):
+  cfg = get_config()
+  cfg["cif_viewer"] = cmd
+  if custom_cmd is not None:
+    cfg["custom_viewer_cmd"] = custom_cmd
+  save_config(cfg)
+
+
+def launch_cif_viewer(cif_filepath: str) -> tuple[bool, str]:
+  """Launch the configured viewer with the specified CIF file path."""
+  cmd_type, custom_cmd = get_configured_viewer()
+  if cmd_type == "custom" and custom_cmd.strip():
+    tokens = shlex.split(custom_cmd.strip()) + [cif_filepath]
+  elif cmd_type == "ase gui":
+    tokens = ["ase", "gui", cif_filepath]
+  elif cmd_type and cmd_type != "xdg-open":
+    tokens = shlex.split(cmd_type) + [cif_filepath]
+  else:
+    tokens = ["xdg-open", cif_filepath]
+
+  try:
+    subprocess.Popen(tokens, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return True, " ".join(tokens)
+  except Exception as e:
+    return False, str(e)
 
 
 def test_mp_api_key(api_key: str) -> bool:
@@ -728,15 +795,6 @@ button.element-card.actinide:hover, button.legend-pill.actinide:hover { backgrou
 """
 
 
-class PeriodicTable(Adw.Application):
-
-  def __init__(self):
-    super().__init__(application_id=APP_ID,
-                     flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
-    self.elements = {
-        number: (symbol, name, category)
-        for number, symbol, name, _col, _row, category in ELEMENTS
-    }
 class PreferencesDialog(Adw.PreferencesDialog):
 
   def __init__(self, parent=None):
@@ -777,6 +835,47 @@ class PreferencesDialog(Adw.PreferencesDialog):
     link_btn.connect("clicked", lambda *_: Gtk.show_uri(parent or self, "https://materialsproject.org/api", Gdk.CURRENT_TIME))
     link_row.add_suffix(link_btn)
     group.add(link_row)
+
+    # Structure Viewer Group
+    viewer_group = Adw.PreferencesGroup(
+        title="Crystal Structure Viewer",
+        description="Select the application used to open and visualize generated CIF unit cell files.")
+    page.add(viewer_group)
+
+    self.available_viewers = get_available_viewers()
+    viewer_labels = [label for label, _ in self.available_viewers]
+    current_cmd, current_custom = get_configured_viewer()
+
+    self.viewer_row = Adw.ComboRow(title="Preferred Viewer")
+    self.viewer_row.set_model(Gtk.StringList.new(viewer_labels))
+
+    matched_idx = 0
+    for idx, (_, cmd) in enumerate(self.available_viewers):
+      if cmd == current_cmd:
+        matched_idx = idx
+        break
+    self.viewer_row.set_selected(matched_idx)
+    self.viewer_row.connect("notify::selected", self.on_viewer_changed)
+    viewer_group.add(self.viewer_row)
+
+    self.custom_cmd_row = Adw.EntryRow(title="Custom Viewer Command")
+    self.custom_cmd_row.set_text(current_custom)
+    self.custom_cmd_row.set_visible(current_cmd == "custom")
+    self.custom_cmd_row.connect("changed", self.on_custom_cmd_changed)
+    viewer_group.add(self.custom_cmd_row)
+
+  def on_viewer_changed(self, *_):
+    idx = self.viewer_row.get_selected()
+    if idx < len(self.available_viewers):
+      _, cmd = self.available_viewers[idx]
+      self.custom_cmd_row.set_visible(cmd == "custom")
+      set_configured_viewer(cmd, self.custom_cmd_row.get_text())
+
+  def on_custom_cmd_changed(self, entry):
+    idx = self.viewer_row.get_selected()
+    if idx < len(self.available_viewers):
+      _, cmd = self.available_viewers[idx]
+      set_configured_viewer(cmd, entry.get_text())
 
   def on_key_changed(self, entry):
     set_mp_api_key(entry.get_text())
@@ -1833,13 +1932,14 @@ class VegardWindow(Adw.Window):
     self.row_stability.add_suffix(self.lbl_stability)
     self.result_group.add(self.row_stability)
 
-    # Action Buttons: Copy & Export CIF
+    # Action Buttons: Open & Export CIF
     action_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10, halign=Gtk.Align.END)
-    self.btn_copy_cif = Gtk.Button(label="Copy CIF")
-    self.btn_copy_cif.add_css_class("pill")
-    self.btn_copy_cif.connect("clicked", self.on_copy_cif)
-    self.btn_copy_cif.set_sensitive(False)
-    action_box.append(self.btn_copy_cif)
+    self.btn_open_cif = Gtk.Button(label="Open CIF")
+    self.btn_open_cif.add_css_class("suggested-action")
+    self.btn_open_cif.add_css_class("pill")
+    self.btn_open_cif.connect("clicked", self.on_open_cif)
+    self.btn_open_cif.set_sensitive(False)
+    action_box.append(self.btn_open_cif)
 
     self.btn_export_cif = Gtk.Button(label="Export CIF…")
     self.btn_export_cif.add_css_class("pill")
@@ -1988,7 +2088,7 @@ class VegardWindow(Adw.Window):
 
     scaled_lattice = {"a": a, "b": b, "c": c, "alpha": alpha, "beta": beta, "gamma": gamma, "volume": vol}
     self.current_cif = build_cif_text(self.current_formula, spc, spc_num, scaled_lattice, sites)
-    self.btn_copy_cif.set_sensitive(True)
+    self.btn_open_cif.set_sensitive(True)
     self.btn_export_cif.set_sensitive(True)
 
   def calculate_local_fallback(self, composition, msg=""):
@@ -2027,7 +2127,7 @@ class VegardWindow(Adw.Window):
     scaled_lattice = {"a": totals[0], "b": totals[1], "c": totals[2], "alpha": 90.0, "beta": 90.0, "gamma": 90.0, "volume": vol}
     sites = [{"species": [{"element": sym, "occu": frac}], "abc": [0.0, 0.0, 0.0]} for sym, frac in composition]
     self.current_cif = build_cif_text(self.current_formula, "P1", 1, scaled_lattice, sites)
-    self.btn_copy_cif.set_sensitive(True)
+    self.btn_open_cif.set_sensitive(True)
     self.btn_export_cif.set_sensitive(True)
 
   def reset_results(self):
@@ -2038,16 +2138,25 @@ class VegardWindow(Adw.Window):
     self.lbl_weight.set_label("—")
     self.lbl_symm.set_label("—")
     self.lbl_stability.set_label("—")
-    self.btn_copy_cif.set_sensitive(False)
+    self.btn_open_cif.set_sensitive(False)
     self.btn_export_cif.set_sensitive(False)
     self.current_cif = ""
 
-  def on_copy_cif(self, _btn):
+  def on_open_cif(self, _btn):
     if not self.current_cif:
       return
-    clipboard = self.get_display().get_clipboard()
-    clipboard.set(self.current_cif)
-    self.status_label.set_text("✓ CIF content copied to clipboard.")
+    safe_formula = re.sub(r"[^A-Za-z0-9_.-]", "_", self.current_formula) or "alloy"
+    try:
+      with tempfile.NamedTemporaryFile(mode="w", prefix="ptbl_", suffix=f"_{safe_formula}.cif", delete=False) as tmp:
+        tmp.write(self.current_cif)
+        tmp_path = tmp.name
+      ok, info = launch_cif_viewer(tmp_path)
+      if ok:
+        self.status_label.set_text(f"✓ Opened structure in {info.split()[0]}.")
+      else:
+        self.status_label.set_text(f"Failed to launch viewer: {info}")
+    except Exception as e:
+      self.status_label.set_text(f"Error opening CIF: {e}")
 
   def on_export_cif(self, _btn):
     if not self.current_cif:
