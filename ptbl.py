@@ -792,6 +792,62 @@ button.element-card.actinide:hover, button.legend-pill.actinide:hover { backgrou
   padding: 2px 6px;
   background: alpha(currentColor, 0.08);
 }
+
+/* Material 3 Compliant Action Buttons */
+button.m3-button {
+  border-radius: 12px;
+  min-height: 38px;
+  padding: 4px 14px;
+  font-weight: 600;
+  font-size: 9.5pt;
+  box-shadow: 0 1px 2px alpha(#000, 0.08);
+  transition: all 180ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
+}
+
+button.m3-button:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 2px 6px alpha(#000, 0.14);
+}
+
+button.m3-button:active {
+  filter: brightness(0.94);
+  box-shadow: none;
+}
+
+button.m3-button.tonal {
+  background: alpha(@accent_color, 0.14);
+  color: @accent_color;
+  border: 1px solid alpha(@accent_color, 0.22);
+}
+
+button.m3-button.tonal:hover {
+  background: alpha(@accent_color, 0.22);
+}
+
+button.m3-button.tonal:disabled {
+  background: alpha(currentColor, 0.05);
+  color: alpha(currentColor, 0.35);
+  border-color: transparent;
+  box-shadow: none;
+  filter: none;
+}
+
+button.m3-button.outlined {
+  background: transparent;
+  border: 1px solid alpha(currentColor, 0.20);
+  color: currentColor;
+}
+
+button.m3-button.outlined:hover {
+  background: alpha(currentColor, 0.06);
+}
+
+button.m3-button.outlined:disabled {
+  border-color: alpha(currentColor, 0.08);
+  color: alpha(currentColor, 0.35);
+  box-shadow: none;
+  filter: none;
+}
 """
 
 
@@ -1866,7 +1922,7 @@ class VegardWindow(Adw.Window):
     self.entry.connect("activate", self.on_calculate_clicked)
     calc_btn = Gtk.Button(label="Fetch & Model")
     calc_btn.add_css_class("suggested-action")
-    calc_btn.add_css_class("pill")
+    calc_btn.add_css_class("m3-button")
     calc_btn.connect("clicked", self.on_calculate_clicked)
     entry_box.append(self.entry)
     entry_box.append(calc_btn)
@@ -1920,7 +1976,7 @@ class VegardWindow(Adw.Window):
     self.row_weight.add_suffix(self.lbl_weight)
     self.result_group.add(self.row_weight)
 
-    self.row_symm = Adw.ActionRow(title="Space group & crystal system")
+    self.row_symm = Adw.ActionRow(title="Space group &amp; crystal system")
     self.lbl_symm = Gtk.Label(label="—", selectable=True)
     self.lbl_symm.add_css_class("property-value")
     self.row_symm.add_suffix(self.lbl_symm)
@@ -1932,17 +1988,33 @@ class VegardWindow(Adw.Window):
     self.row_stability.add_suffix(self.lbl_stability)
     self.result_group.add(self.row_stability)
 
-    # Action Buttons: Open & Export CIF
+    # Action Buttons: Materials Project, Open & Export CIF (Material 3 compliant)
     action_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=10, halign=Gtk.Align.END)
+
+    self.current_mp_url = ""
+    self.btn_mp_link = Gtk.Button()
+    self.btn_mp_content = Adw.ButtonContent(
+        icon_name="adw-external-link-symbolic",
+        label="Materials Project",
+    )
+    self.btn_mp_link.set_child(self.btn_mp_content)
+    self.btn_mp_link.add_css_class("m3-button")
+    self.btn_mp_link.add_css_class("tonal")
+    self.btn_mp_link.connect("clicked", self.on_open_mp_link)
+    self.btn_mp_link.set_sensitive(False)
+    self.btn_mp_link.set_tooltip_text("Open structure on Materials Project")
+    action_box.append(self.btn_mp_link)
+
     self.btn_open_cif = Gtk.Button(label="Open CIF")
     self.btn_open_cif.add_css_class("suggested-action")
-    self.btn_open_cif.add_css_class("pill")
+    self.btn_open_cif.add_css_class("m3-button")
     self.btn_open_cif.connect("clicked", self.on_open_cif)
     self.btn_open_cif.set_sensitive(False)
     action_box.append(self.btn_open_cif)
 
     self.btn_export_cif = Gtk.Button(label="Export CIF…")
-    self.btn_export_cif.add_css_class("pill")
+    self.btn_export_cif.add_css_class("m3-button")
+    self.btn_export_cif.add_css_class("outlined")
     self.btn_export_cif.connect("clicked", self.on_export_cif)
     self.btn_export_cif.set_sensitive(False)
     action_box.append(self.btn_export_cif)
@@ -2026,8 +2098,15 @@ class VegardWindow(Adw.Window):
     idx = self.proto_dropdown.get_selected()
     if idx < len(self.mp_materials):
       mat = self.mp_materials[idx]
+      mp_id = mat.get("material_id", "")
+      self.current_mp_url = f"https://materialsproject.org/materials/{mp_id}" if mp_id else ""
+      self.btn_mp_link.set_tooltip_text(f"Open {mp_id} on Materials Project" if mp_id else "Open structure on Materials Project")
+      self.btn_mp_link.set_sensitive(bool(self.current_mp_url))
       self.calculate_with_mp_prototype(mat, composition)
     else:
+      self.current_mp_url = ""
+      self.btn_mp_link.set_sensitive(False)
+      self.btn_mp_link.set_tooltip_text("No Materials Project structure selected")
       self.calculate_local_fallback(composition, msg="Using local elemental solid-solution calculation.")
 
   def calculate_with_mp_prototype(self, mat, composition):
@@ -2092,6 +2171,8 @@ class VegardWindow(Adw.Window):
     self.btn_export_cif.set_sensitive(True)
 
   def calculate_local_fallback(self, composition, msg=""):
+    self.btn_mp_link.set_sensitive(False)
+    self.current_mp_url = ""
     if msg:
       self.status_label.set_text(msg)
 
@@ -2138,9 +2219,15 @@ class VegardWindow(Adw.Window):
     self.lbl_weight.set_label("—")
     self.lbl_symm.set_label("—")
     self.lbl_stability.set_label("—")
+    self.btn_mp_link.set_sensitive(False)
     self.btn_open_cif.set_sensitive(False)
     self.btn_export_cif.set_sensitive(False)
+    self.current_mp_url = ""
     self.current_cif = ""
+
+  def on_open_mp_link(self, _btn):
+    if getattr(self, "current_mp_url", None):
+      Gtk.show_uri(self, self.current_mp_url, Gdk.CURRENT_TIME)
 
   def on_open_cif(self, _btn):
     if not self.current_cif:
