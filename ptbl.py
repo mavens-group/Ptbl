@@ -26,7 +26,7 @@ gi.require_version("Gdk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, Gdk, Gio, GLib, Gtk, Pango
 
-APP_ID = "org.rudra.Ptbl"
+APP_ID = "org.mavensgroup.Ptbl"
 
 
 def find_data_root():

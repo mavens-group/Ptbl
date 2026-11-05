@@ -22,9 +22,9 @@ setup(
         ]),
         ("share/ptbl/data/exported",
          [str(path) for path in sorted((ROOT / "data/exported").glob("*.json"))]),
-        ("share/applications", ["data/org.rudra.Ptbl.desktop"]),
+        ("share/applications", ["data/org.mavensgroup.Ptbl.desktop"]),
         ("share/icons/hicolor/scalable/apps",
-         ["data/icons/hicolor/scalable/apps/org.rudra.Ptbl.svg"]),
+         ["data/icons/hicolor/scalable/apps/org.mavensgroup.Ptbl.svg"]),
     ],
     classifiers=[
         "Environment :: X11 Applications :: GTK",
